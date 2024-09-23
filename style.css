@@ -1,0 +1,21 @@
+.background{
+    background-image: url("resources/ico2.1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bg-img{
+    background-image: url("resources/picsvg_download\ \(1\).svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.backgroundImg{
+    background-image: url(resources/green\ background1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
