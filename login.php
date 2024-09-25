@@ -28,7 +28,19 @@ include "connection.php";
 
                         <div class="row">
 
+                            <?php
 
+                            $username = "";
+                            $password = "";
+
+                            if (isset($_COOKIE["username"])) {
+                                $username = $_COOKIE["username"];
+                            }
+                            if (isset($_COOKIE["password"])) {
+                                $password = $_COOKIE["password"];
+                            }
+
+                            ?>
 
                             <!-- topic -->
                             <div class="col-12 mt-2">
@@ -37,11 +49,11 @@ include "connection.php";
 
                             <div class="col-9 mt-2">
                                 <label class="form-label text-success-emphasis fw-bold">Username:</label>
-                                <input class="form-control" type="email" id="un" />
+                                <input class="form-control" type="email" id="un" value="<?php echo $username ?>" />
                             </div>
                             <div class="col-9 mt-2">
                                 <label class="form-label text-success-emphasis fw-bold">Password:</label>
-                                <input class="form-control" type="password" id="pw" />
+                                <input class="form-control" type="password" id="pw" value="<?php echo $password ?>" />
                             </div>
                             <div class="col-9 mt-2 mb-2">
                                 <input type="checkbox" class="form-check-input" id="rm">
@@ -125,8 +137,8 @@ include "connection.php";
                                                 $data = $rs->fetch_assoc();
 
                                             ?>
-                                            <option value="<?php echo ($data["id"]); ?>"><?php echo ($data["name"]); ?>
-                                            </option>
+                                            <option value="<?php echo ($data["id"]); ?>">
+                                                <?php echo ($data["position_name"]); ?></option>
                                             <?php
                                             }
 
@@ -138,6 +150,10 @@ include "connection.php";
                                         <input class="form-control" type="text" id="mobile" />
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <label class="form-label text-success-emphasis fw-bold">email</label>
+                                <input class="form-control" type="text" id="email" />
                             </div>
                             <div class="col-12 mt-2">
                                 <label class="form-label text-success-emphasis fw-bold">username</label>
@@ -172,7 +188,7 @@ include "connection.php";
             <!-- signupbox  -->
 
             <div class="fixed-bottom col-12 d-lg-block ">
-                <p class="text-center text-gray">&copy; Lezafarming. Sri Lanka</p>
+                <p class="text-center text-black fw-bold">&copy; Lezafarming. Sri Lanka</p>
             </div>
 
 
