@@ -22,7 +22,7 @@ include "connection.php";
 
                 <div class="row signup_box rounded ">
                     <!-- image -->
-                    <div class="bg-img col-6 d-none d-md-block d-lg-block "></div>
+                    <div class="bg-img col-6 d-sm-none d-md-block d-lg-block "></div>
 
                     <div class="col-12 col-md-6 col-lg-6 p-5">
 
@@ -49,11 +49,11 @@ include "connection.php";
 
                             <div class="col-9 mt-2">
                                 <label class="form-label text-success-emphasis fw-bold">Username:</label>
-                                <input class="form-control" type="email" id="un" value="<?php echo $username ?>" />
+                                <input class="form-control" type="email" id="un" value="<?php echo $username ?>"/>
                             </div>
                             <div class="col-9 mt-2">
                                 <label class="form-label text-success-emphasis fw-bold">Password:</label>
-                                <input class="form-control" type="password" id="pw" value="<?php echo $password ?>" />
+                                <input class="form-control" type="password" id="pw" value="<?php echo $password ?>"/>
                             </div>
                             <div class="col-9 mt-2 mb-2">
                                 <input type="checkbox" class="form-check-input" id="rm">
@@ -137,8 +137,7 @@ include "connection.php";
                                                 $data = $rs->fetch_assoc();
 
                                             ?>
-                                            <option value="<?php echo ($data["id"]); ?>">
-                                                <?php echo ($data["position_name"]); ?></option>
+                                                <option value="<?php echo ($data["id"]); ?>"><?php echo ($data["position_name"]); ?></option>
                                             <?php
                                             }
 

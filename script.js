@@ -360,3 +360,171 @@ function printDiv3() {
 
     document.body.innerHTML = originalContent;
 }
+
+function typeReg() {
+    var antype = document.getElementById("antype");
+    // alert(antype.value);
+
+    var f = new FormData();
+    f.append("t", antype.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState==4 & request.status==200) {
+            var response = request.responseText;
+            // alert(response);
+
+            if (response == "Success") {
+                document.getElementById("msg1").innerHTML = response;
+                document.getElementById("msgDiv1").className = "d-block";
+                document.getElementById.apply("msgDiv1").className = "alert alert-success";
+                antype.value = "";
+            } else {
+                document.getElementById("msg1").innerHTML = response;
+                document.getElementById("msgDiv1").className = "d-block";
+            }
+        }
+    }
+
+    request.open("POST", "typeRegProcess.php", true);
+    request.send(f);
+}
+
+function colorReg() {
+    var color = document.getElementById("color");
+    // alert(color.value);
+
+    var f = new FormData();
+    f.append("c", color.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState==4 & request.status==200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                document.getElementById("msg2").innerHTML = response;
+                document.getElementById("msgDiv2").className = "d-block";
+                document.getElementById.apply("msgDiv2").className = "alert alert-success";
+                antype.value = "";
+            } else {
+                document.getElementById("msg2").innerHTML = response;
+                document.getElementById("msgDiv2").className = "d-block";
+            }
+        }
+    }
+
+    request.open("POST", "colorRegProcess.php", true);
+    request.send(f);
+}
+
+function breedReg() {
+    var breed = document.getElementById("breed");
+    // alert(breed.value);
+
+    var f = new FormData();
+    f.append("b", breed.value);
+
+    var request = new XMLHttpRequest();
+    
+    request.onreadystatechange = function () {
+        if (request.readyState==4 & request.status==200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                document.getElementById("msg3").innerHTML = response;
+                document.getElementById("msgDiv3").className = "d-block";
+                document.getElementById.apply("msgDiv3").className = "alert alert-success";
+                antype.value = "";
+            } else {
+                document.getElementById("msg3").innerHTML = response;
+                document.getElementById("msgDiv3").className = "d-block";
+            }
+            
+        }
+    }
+
+    request.open("POST", "breedRegProcess.php", true);
+    request.send(f);
+}
+
+function healthReg() {
+    var health = document.getElementById("health");
+
+    var f = new FormData();
+    f.append("h", health.value);
+
+    var request = new XMLHttpRequest();
+    
+    request.onreadystatechange = function () {
+        if (request.readyState==4 & request.status==200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                document.getElementById("msg4").innerHTML = response;
+                document.getElementById("msgDiv4").className = "d-block";
+                document.getElementById.apply("msgDiv4").className = "alert alert-success";
+                antype.value = "";
+            } else {
+                document.getElementById("msg4").innerHTML = response;
+                document.getElementById("msgDiv4").className = "d-block";
+            }
+            
+        }
+    }
+
+    request.open("POST", "healthRegProcess.php", true);
+    request.send(f);
+}
+
+function anReg() {
+    var id = document.getElementById("id");
+    var selectType = document.getElementById("selectType");
+    var selectColor = document.getElementById("selectColor");
+    var weight = document.getElementById("weight");
+    var age = document.getElementById("age");
+    var selectBreed = document.getElementById("selectBreed");
+    var selectHealth = document.getElementById("selectHealth");
+    
+
+    var f = new FormData();
+    f.append("id", id.value);
+    f.append("type", selectType.value);
+    f.append("color", selectColor.value);
+    f.append("w", weight.value);
+    f.append("age", age.value);
+    f.append("breed", selectBreed.value);
+    f.append("health", selectHealth.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState==4 & request.status==200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                document.getElementById("msgan").innerHTML = "Registration Successfully";
+                document.getElementById("msgan").className = "alert alert-success";
+                document.getElementById("msgDivan").className = "d-block";
+
+                id.value = "";
+                selectType.value = "";
+                selectColor.value = "";
+                weight.value = "";
+                age.value = "";
+                selectBreed.value = "";
+                selectHealth.value = "";
+                reload();
+
+            } else {
+                document.getElementById("msgan").innerHTML = response;
+                document.getElementById("msgDivan").className = "d-block";
+            }
+        }
+    }
+
+    request.open("POST", "animalRegProcess.php", true);
+    request.send(f);
+}

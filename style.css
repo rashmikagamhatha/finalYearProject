@@ -1,20 +1,24 @@
-.background {
+.background{
     background-image: url("resources/ico2.1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.bg-img {
+.bg-img{
     background-image: url("resources/picsvg_download\ \(1\).svg");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.backgroundImg {
-    background-image: url(resources/green\ background1.jpg);
+.backgroundImg{
+    background-image: url(resources/whitegreen.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
+}
+
+.signup_box{
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
 }

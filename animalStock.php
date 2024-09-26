@@ -182,7 +182,7 @@ if (isset($_SESSION["u"])) {
 
 <?php
     } else {
-        echo ("you are not farm manager or animal caretaker");
+        header("location: dashboard.php");
     }
 } else {
     header("location: login.php");
