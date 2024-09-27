@@ -55,7 +55,7 @@ if ($num > 0) {
                             <p style="margin-bottom: 24px;">You Can Change Your Pasword By clicking the below.</p>
 
                             <div>
-                                <a href="http://localhost/farmshop/resetPassword.php?vcode='.$vcode.'" style="text-decoration: none; display: inline-block; border-radius: 8px; background-color: green; 
+                                <a href="http://localhost:3000/resetPassword.php?vcode='.$vcode.'" style="text-decoration: none; display: inline-block; border-radius: 8px; background-color: green; 
                                 color: white; padding: 15px;">
                                     <span>Reset Password</span>
                                 </a>
