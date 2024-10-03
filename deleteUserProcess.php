@@ -6,7 +6,7 @@ $uid = $_POST["u"];
 // echo($uid);
 
 if (empty($uid)) {
-    echo ("Please Enter Your Use Id");
+    echo ("Please Enter Your User Id");
 } else {
     $rs = Database::search("SELECT * FROM `employee` WHERE `emp_id` = '" . $uid . "' AND `user_type_id` = '2'");
     $num = $rs->num_rows;

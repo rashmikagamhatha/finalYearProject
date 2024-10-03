@@ -528,3 +528,243 @@ function anReg() {
     request.open("POST", "animalRegProcess.php", true);
     request.send(f);
 }
+
+
+function uploadImg() {
+    var img = document.getElementById("imgUploader");
+  
+    var f = new FormData();
+    f.append("i", img.files[0]);
+  
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "empty") {
+                swal("Warning", "Plz Select Your Profile Image", "warning");
+                // alert("Plz Select Your Profile Image");
+            } else {
+                document.getElementById("i").src = response;
+                img.value = "";
+            }
+        }
+    }
+  
+    request.open("POST", "profileImgUpload.php", true);
+    request.send(f);
+  }
+
+  function updateData() {
+    var fname = document.getElementById("fname");
+    var lname = document.getElementById("lname");
+    var email = document.getElementById("email");
+    var mobile = document.getElementById("mobile");
+    var pw = document.getElementById("pw");
+    var no = document.getElementById("no");
+    var line1 = document.getElementById("line1");
+    var line2 = document.getElementById("line2");
+    // alert(fname.value);
+
+    var f = new FormData();
+    f.append()
+}
+
+  function updateData() {
+    // alert("ok");
+    var fname = document.getElementById("fname");
+    var lname = document.getElementById("lname");
+    var email = document.getElementById("email");
+    var mobile = document.getElementById("mobile");
+    var pw = document.getElementById("pw");
+    var d_on = document.getElementById("d_on");
+    var d_off = document.getElementById("d_off");
+    var sal = document.getElementById("sal");
+    // alert(no.value);
+
+    var f = new FormData();
+    f.append("f", fname.value);
+    f.append("l", lname.value);
+    f.append("e", email.value);
+    f.append("m", mobile.value);
+    f.append("p", pw.value);
+    f.append("don", d_on.value);
+    f.append("dof", d_off.value);
+    f.append("s", sal.value);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            alert(response);
+            reload();
+
+        }
+    };
+
+    request.open("POST", "updateDataProcess.php", true);
+    request.send(f);
+}
+
+
+function comreg() {
+    // alert("ok");
+
+    var com = document.getElementById("com");
+
+    var f = new FormData();
+    f.append("c", com.value);
+
+    var request = new XMLHttpRequest();
+    
+    request.onreadystatechange = function () {
+        if (request.readyState==4 & request.status==200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                document.getElementById("msg1").innerHTML = response;
+                document.getElementById("msgDiv1").className = "d-block";
+                document.getElementById.apply("msgDiv1").className = "alert alert-success";
+                antype.value = "";
+            } else {
+                document.getElementById("msg1").innerHTML = response;
+                document.getElementById("msgDiv1").className = "d-block";
+            }
+            
+        }
+    }
+
+    request.open("POST", "companyRegProcess.php", true);
+    request.send(f);
+
+}
+
+function supReg() {
+    var mobile = document.getElementById("mobile");
+    var name = document.getElementById("name");
+    var email = document.getElementById("email");
+    var selectCompany = document.getElementById("selectCompany");
+
+    var f = new FormData();
+    f.append("m", mobile.value);
+    f.append("n", name.value);
+    f.append("e", email.value);
+    f.append("com", selectCompany.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState==4 & request.status==200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                document.getElementById("msgan").innerHTML = response;
+                document.getElementById("msgDivan").className = "d-block";
+                document.getElementById.apply("msgDivan").className = "alert alert-success";
+                antype.value = "";
+            } else {
+                document.getElementById("msgan").innerHTML = response;
+                document.getElementById("msgDivan").className = "d-block";
+            }
+        }
+    }
+
+
+    request.open("POST", "supplierRegProcess.php", true);
+    request.send(f);
+}
+
+function loadSup() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            document.getElementById("tbs").innerHTML = response;
+        }
+    };
+
+    request.open("POST", "loadSupplierProcess.php", true);
+    request.send();
+}
+
+function ftypereg() {
+    var ftr = document.getElementById("ftr");
+
+    var f = new FormData();
+    f.append("f", ftr.value);
+
+    var request = new XMLHttpRequest();
+    
+    request.onreadystatechange = function () {
+        if (request.readyState==4 & request.status==200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                ftr.value = "";
+                document.getElementById("msg1").innerHTML = response;
+                document.getElementById("msgDiv1").className = "d-block";
+                document.getElementById.apply("msgDiv1").className = "alert alert-success";
+            } else {
+                document.getElementById("msg1").innerHTML = response;
+                document.getElementById("msgDiv1").className = "d-block";
+            }
+            
+        }
+    }
+
+    request.open("POST", "foodTypeRegProcess.php", true);
+    request.send(f);
+}
+
+function foodReg() {
+    var fname = document.getElementById("fname");
+    var ftype = document.getElementById("ftype");
+    var fqty = document.getElementById("fqty");
+    var fdate = document.getElementById("fdate");
+    var fcost = document.getElementById("fcost");
+    var smobile = document.getElementById("smobile");
+
+    var f = new FormData();
+    f.append("fn", fname.value);
+    f.append("ft", ftype.value);
+    f.append("fq", fqty.value);
+    f.append("fd", fdate.value);
+    f.append("fc", fcost.value);
+    f.append("sm", smobile.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState==4 & request.status==200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                ftr.value = "";
+                document.getElementById("msgan").innerHTML = response;
+                document.getElementById("msgDivan").className = "d-block";
+                document.getElementById.apply("msgDivan").className = "alert alert-success";
+            } else {
+                document.getElementById("msgan").innerHTML = response;
+                document.getElementById("msgDivan").className = "d-block";
+            }
+            
+        }
+    }
+
+    request.open("POST", "foodRegProcess.php", true);
+    request.send(f);
+
+}
+
+function loadfood() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            document.getElementById("tbf").innerHTML = response;
+        }
+    };
+
+    request.open("POST", "loadFoodProcess.php", true);
+    request.send();
+}

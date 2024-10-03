@@ -18,11 +18,12 @@ include "connection.php";
 
         <div class=" row align-items-center">
             <!-- signinbox -->
-            <div class="col-12 col-md-8 offset-0 offset-md-2  rounded border-0 bg-success-subtle" id="s_in">
+            <div class="col-12 col-md-9 offset-0 offset-md-1  rounded border-0 bg-success-subtle" id="s_in">
 
                 <div class="row signup_box rounded ">
                     <!-- image -->
                     <div class="bg-img col-6 d-sm-none d-md-block d-lg-block "></div>
+                    
 
                     <div class="col-12 col-md-6 col-lg-6 p-5">
 
@@ -44,16 +45,16 @@ include "connection.php";
 
                             <!-- topic -->
                             <div class="col-12 mt-2">
-                                <h3 class="text-success-emphasis fw-bold">Employee account Sign</h3>
+                                <h3 class="text-success-emphasis fw-bold">Employee Account Sign</h3>
                             </div>
 
                             <div class="col-9 mt-2">
                                 <label class="form-label text-success-emphasis fw-bold">Username:</label>
-                                <input class="form-control" type="email" id="un" value="<?php echo $username ?>" />
+                                <input class="form-control" type="email" id="un" value="<?php echo $username ?>"/>
                             </div>
                             <div class="col-9 mt-2">
                                 <label class="form-label text-success-emphasis fw-bold">Password:</label>
-                                <input class="form-control" type="password" id="pw" value="<?php echo $password ?>" />
+                                <input class="form-control" type="password" id="pw" value="<?php echo $password ?>"/>
                             </div>
                             <div class="col-9 mt-2 mb-2">
                                 <input type="checkbox" class="form-check-input" id="rm">
@@ -68,15 +69,15 @@ include "connection.php";
 
                                 <div class=" row">
 
-                                    <div class="col-6 d-grid mt-2">
+                                    <div class="col-3 d-grid mt-2">
                                         <button class="btn btn-success" onclick="empSignin();">Signin</button>
                                     </div>
-                                    <div class="col-6 d-grid mt-2">
-                                        <a href="forgetPassword.php" class="btn btn-link text-success-emphasis">forget
-                                            password?</a>
+                                    <div class="col-9 d-grid mt-2">
+                                        <a href="forgetPassword.php" class="btn btn-link text-success-emphasis">forget password?</a>
                                     </div>
+                                    
                                     <div class="mt-2">
-                                        <h5 class="text-center text-success-emphasis">or,</h5>
+                                        <h5 class="text-center text-success-emphasis">or</h5>
                                     </div>
                                     <div class="col-12 d-grid mt-2">
                                         <button class="btn btn-outline-success" onclick="changeView();">join with using
@@ -97,7 +98,7 @@ include "connection.php";
             <!-- signinbox -->
 
             <!-- signupbox  -->
-            <div class="col-12 col-md-8 offset-0 offset-md-2 offset-lg-2 rounded border-0  bg-success-subtle d-none"
+            <div class="col-12 col-md-10 offset-0 offset-md-1 offset-lg-1 rounded border-0  bg-success-subtle d-none"
                 id="s_up">
                 <div class="row signup_box rounded ">
                     <!-- image -->
@@ -106,7 +107,7 @@ include "connection.php";
                         <div class="row">
                             <!-- topic -->
                             <div class="col-12 text-success-emphasis mt-2">
-                                <h3 class="text-success-emphasis fw-bold">Employee Registration.</h3>
+                                <h3 class="text-success-emphasis fw-bold">Employee Registration</h3>
                             </div>
                             <div class="col-12 mt-2">
                                 <div class="row">
@@ -137,8 +138,7 @@ include "connection.php";
                                                 $data = $rs->fetch_assoc();
 
                                             ?>
-                                            <option value="<?php echo ($data["id"]); ?>">
-                                                <?php echo ($data["position_name"]); ?></option>
+                                                <option value="<?php echo ($data["id"]); ?>"><?php echo ($data["position_name"]); ?></option>
                                             <?php
                                             }
 
@@ -152,15 +152,15 @@ include "connection.php";
                                 </div>
                             </div>
                             <div class="col-12 mt-2">
-                                <label class="form-label text-success-emphasis fw-bold">email</label>
+                                <label class="form-label text-success-emphasis fw-bold">Email</label>
                                 <input class="form-control" type="text" id="email" />
                             </div>
                             <div class="col-12 mt-2">
-                                <label class="form-label text-success-emphasis fw-bold">username</label>
+                                <label class="form-label text-success-emphasis fw-bold">Username</label>
                                 <input class="form-control" type="text" id="username" />
                             </div>
                             <div class="col-12 mt-2 mb-2">
-                                <label class="form-label text-success-emphasis fw-bold">password</label>
+                                <label class="form-label text-success-emphasis fw-bold">Password</label>
                                 <input class="form-control" type="password" id="password">
                             </div>
 
@@ -173,7 +173,7 @@ include "connection.php";
                                         <button class="btn btn-success" onclick="empSignup();">Signup</button>
                                     </div>
                                     <div class="mt-2">
-                                        <h5 class="text-center text-success-emphasis">or,</h5>
+                                        <h5 class="text-center text-success-emphasis">or</h5>
                                     </div>
                                     <div class="col-12 d-grid mt-2">
                                         <button type="button" class="btn btn-outline-success"

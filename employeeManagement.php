@@ -61,8 +61,11 @@ if (isset($_SESSION["u"])) {
               <input type="text" class="form-control bg-dark-subtle " placeholder="User Id" id="uid" />
             </div>
 
-            <button class="btn btn-outline-secondary col-1 me-2" onclick="updateUserStatus();">Change Status</button>
-            <button class="btn btn-outline-secondary col-1 " onclick="deleteUser();">Delete User</button>
+            <!-- <button class="btn btn-outline-secondary col-1 me-2" onclick="updateUserStatus();"><i class="bi bi-pencil-square"></i></button> -->
+            <i class="col-1 me-2 btn btn-outline-danger bi bi-pencil-square fw-bold" onclick="updateUserStatus();"> Status</i>
+            <!-- <button class="btn btn-outline-secondary col-1 " onclick="deleteUser();">Delete User</button>
+              -->
+              <i class="col-1 me-2 btn btn-outline-danger bi bi-trash fw-bold" onclick="deleteUser();"></i>
           </div>
 
           <div class="col-4 col-md-8 mb-3" id="printAr">
@@ -94,7 +97,8 @@ if (isset($_SESSION["u"])) {
       </div>
 
       <div class="d-flex justify-content-end container mt-5 mb-5">
-        <button class="btn btn-outline-dark col-2" onclick="printDiv();">Print</button>
+      <i class="btn btn-outline-danger fw-bold col-1 bi bi-printer" onclick="printDiv();"></i>
+        <!-- <button class="btn btn-outline-dark col-2" onclick="printDiv();">print</button> -->
       </div>
 
       <script src="bootstrap.bundle.min.js"></script>

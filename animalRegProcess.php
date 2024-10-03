@@ -32,7 +32,7 @@ if (empty($id)) {
     echo ("Invalid weight. Please enter a positive number.");
 } else if (empty($age)) {
     echo("please enter age");
-} else if (!preg_match('/^(1[01][0-9]|[1-9]?[0-9])$/', $age)) {
+} else if (!preg_match('/^(\d{1,2}(\.\d+)?|1[01]\d(\.\d+)?)$/', $age)) {
     echo("Invalid age. Please enter a valid age (0-120).");
 } else if (empty($breed)) {
     echo("Please select a breed");

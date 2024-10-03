@@ -17,7 +17,14 @@
 
 
         <form class="d-flex me-2">
-          <a href="#"><img class="me-2" src="resources/blankuser.png" style="width: 40px; height: 40px;" alt=""></a>
+          <a href="profile.php"><img class="me-2" src="<?php
+                                                                if (!empty($d["img_path"])) {
+                                                                    echo $d["img_path"];
+                                                                } else {
+                                                                    echo ("resources/blankuser.png");
+                                                                }
+
+                                                                ?>" style="width: 40px; height: 40px;" alt=""></a>
           <div class="text-center me-3 mt-1 ">
             <span class="text-lg-start text-success fw-bolder"><?php echo $d["fname"] ?> <?php echo $d["lname"] ?></span>
           </div>

@@ -7,7 +7,7 @@ $user = $_SESSION["u"];
 
 if (isset($_SESSION["u"])) {
 
-  $rs = Database::search("SELECT * FROM `employee` WHERE `emp_id` = '" . $user["emp_id"] . "'");
+  $rs = Database::search("SELECT * FROM `employee` INNER JOIN `position` ON `employee`.`position_id`=`position`.`id` WHERE `emp_id` = '" . $user["emp_id"] . "'");
   $d = $rs->fetch_assoc();
 
 ?>
@@ -25,7 +25,7 @@ if (isset($_SESSION["u"])) {
     <link rel="icon" href="resources/harvest_11296852.png">
   </head>
 
-  <body class="backgroundImg">
+  <body class="backgroundImg" onload="loadcharts();">
 
     <!-- navbar -->
     <!-- navbar -->
@@ -48,7 +48,14 @@ if (isset($_SESSION["u"])) {
 
 
         <form class="d-flex me-2">
-          <a href="#"><img class="me-2" src="resources/blankuser.png" style="width: 40px; height: 40px;" alt=""></a>
+          <a href="profile.php"><img class="me-2" src="<?php
+                                                                if (!empty($d["img_path"])) {
+                                                                    echo $d["img_path"];
+                                                                } else {
+                                                                    echo ("resources/blankuser.png");
+                                                                }
+
+                                                                ?>" style="width: 40px; height: 40px;" alt=""></a>
           <div class="text-center me-3 mt-1 ">
             <span class="text-lg-start text-success fw-bolder"><?php echo $d["fname"] ?> <?php echo $d["lname"] ?></span>
           </div>
@@ -78,239 +85,371 @@ if (isset($_SESSION["u"])) {
       <div class="d-flex col-12 fw-bold justify-content-end">
         <span id="text1" class="me-3 mt-1">Select Language</span>
         <div class="col-1">
-        <select class="form-select " name="" id="languageSelect" onchange="changeLanguage()">
-          <option value="en">ENGLISH</option>
-          <option value="si">සිංහල</option>
-        </select>
+          <select class="form-select " name="" id="languageSelect" onchange="changeLanguage()">
+            <option value="en">ENGLISH</option>
+            <option value="si">සිංහල</option>
+          </select>
         </div>
       </div>
     </div>
-
-    <!-- navbar -->
-    <!-- navbar -->
-
-    <!-- canvastart -->
-
-    <div class="offcanvas offcanvas-start bg-success-subtle" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="cantitle">Leza Farming Management</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <div>
-
-        </div>
-
-        <!-- profile -->
-        <div class="d-none d-md-flex  justify-content-center">
-          <img class="rounded" src="resources/blankuser.png" height="130px" id="i">
-        </div>
-        <div class="mt-1 text-center">
-          <label for="form-label">
-            <label type="text"><?php echo $d["fname"] ?></label>
-            <label type="text"><?php echo $d["lname"] ?></label>
-          </label>
-        </div>
-        <div class="mt-1 text-center">
-          <label for="form-label">
-            <span><?php echo $d["mobile"] ?></span>
-          </label>
-        </div>
-        <div class="mt-1 text-center">
-          <label for="form-label">
-            <span> <?php
-                    if ($d["position_id"] == '1') {
-                      echo ("Farm Manager");
-                    } else if ($d["position_id"] == '2') {
-                      echo ("Animal Caretaker");
-                    } else if ($d["position_id"] == '3') {
-                      echo ("Feed Supervisor");
-                    } else if ($d["position_id"] == '4') {
-                      echo ("Health Assistant");
-                    } else {
-                      echo ("General Worker");
-                    }
-                    ?> </span>
-          </label>
-        </div>
-
-        <!-- profile -->
-
-        <ul class="navbar-nav ">
-          <li class="my-1">
-            <hr class="table-group-divider">
-          </li>
-          <li>
-            <a href="#" class="nav-link px-3 active">
-              <span class="me-2">
-                <i class="bi bi-speedometer"></i>
-              </span>
-              <span id="dashtitle">Dashboard</span>
-            </a>
-          </li>
-          <li>
-            <a href="animalStock.php" class="nav-link active">
-              <span class="btn btn-outline-secondary col-11" id="can1">LiveStock details</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link active"></a>
-            <span class="btn btn-outline-secondary col-11" id="can2">Food Stock</span>
-          </li>
-          <li>
-            <a href="#" class="nav-link active"></a>
-            <span class="btn btn-outline-secondary col-11" id="can3">Production</span>
-          </li>
-          <li>
-            <a href="#" class="nav-link active"></a>
-            <span class="btn btn-outline-secondary col-11" id="can4">Health Monitoring</span>
-          </li>
-          <li>
-            <a href="employeeManagement.php" class="nav-link active">
-              <span class="btn btn-outline-secondary col-11" id="can5">Employee Management</span>
-            </a>
-          </li>
-          <li class="my-1">
-            <hr class="table-group-divider">
-          </li>
-          <li>
-            <a href="#" class="nav-link px-3 active">
-              <span class="me-2">
-                <i class="bi bi-file-earmark-bar-graph"></i>
-              </span>
-              <span id="can6">Report related live stock</span>
-            </a>
-          </li>
-          <li class="my-1">
-            <hr class="table-group-divider">
-          </li>
-          <li>
-            <a href="#" class="nav-link px-3 active">
-              <span class="me-2">
-                <i class="bi bi-puzzle-fill"></i>
-              </span>
-              <span id="can7">Manage feeding schedules</span>
-            </a>
-          </li>
-          <li class="my-1">
-            <hr class="table-group-divider">
-          </li>
-          <a href="#" class="nav-link px-3 active">
-            <span class="me-2">
-              <i class="bi bi-bell"></i>
-            </span>
-            <span id="can8">Notification and Alerts</span>
-          </a>
-          <li class="my-1">
-            <hr class="table-group-divider">
-          </li>
-
-      </div>
-      </ul>
     </div>
 
+    <div class="row container-fluid ">
 
+      <div class="row d-flex ">
+        <div class="card_box  bg-white ms-5 col-8 col-md-2 ">
+          <h6 class="card-subtitle mb-1 text-body-secondary text-center mt-2" id="card1">Total Number of Animals</h6>
 
+          <?php
+          $rs = Database::search("SELECT * FROM `animal`");
+          $num = $rs->num_rows;
+          ?>
 
-    <!-- canvastart -->
-
-    <div class="container-fluid">
-      <br><br><br><br>
-
-      <div class="row">
-        <div class="col-5 container mb-5" style="width: 600px;">
-          <h2 class="text-center fw-bold mb-5" id="chartname1">All Animals</h2>
-          <canvas id="animalchart1"></canvas>
+          <h5 class="card-title text-center fw-bold mb-2">
+            <?php
+            if ($num > 0) {
+              echo ($num);
+            } else {
+            ?>
+              0
+            <?php
+            }
+            ?>
+          </h5>
         </div>
+        <div class="card_box   bg-white ms-5 col-8 col-md-2 mt-2 mt-md-0">
+          <h6 class="card-subtitle mb-1 text-body-secondary text-center mt-2" id="card2">Needs Attention</h6>
+
+          <?php
+          $rs1 = Database::search("SELECT * FROM `animal` INNER JOIN `health_status` ON `animal`.`health_status_id`= `health_status`.`id` WHERE `health_name` != 'Healthy'");
+          $num1 = $rs1->num_rows;
+          ?>
+
+
+          <h5 class="card-title text-center fw-bold mb-2">
+            <?php
+            if ($num1 > 0) {
+              echo ($num1);
+            } else {
+            ?>
+              0
+            <?php
+            }
+            ?>
+          </h5>
+        </div>
+        <div class="card_box   bg-white ms-5 col-8 col-md-2 mt-2 mt-md-0">
+          <h6 class="card-subtitle mb-1 text-body-secondary text-center mt-2" id="card3">Pregnant</h6>
+
+          <?php
+          $rs2 = Database::search("SELECT * FROM `animal` INNER JOIN `health_status` ON `animal`.`health_status_id`= `health_status`.`id` WHERE `health_name` = 'Pregnant'");
+          $num2 = $rs2->num_rows;
+          ?>
+
+          <h5 class="card-title text-center fw-bold mb-2">
+            <?php
+            if ($num2 > 0) {
+              echo ($num2);
+            } else {
+            ?>
+              0
+            <?php
+            }
+            ?>
+          </h5>
+        </div>
+        <div class="card_box   bg-white ms-5 col-8 col-md-2 mt-2 mt-md-0">
+          <h6 class="card-subtitle mb-1 text-body-secondary text-center mt-2" id="card4">Healthy</h6>
+
+          <?php
+          $rs3 = Database::search("SELECT * FROM `animal` INNER JOIN `health_status` ON `animal`.`health_status_id`= `health_status`.`id` WHERE `health_name` = 'Healthy'");
+          $num3 = $rs3->num_rows;
+          ?>
+
+          <h5 class="card-title text-center fw-bold mb-2">
+
+            <?php
+            if ($num3 > 0) {
+              echo ($num3);
+            } else {
+            ?>
+              0
+            <?php
+            }
+            ?>
+
+          </h5>
+        </div>
+      </div>
+
+      <!-- navbar -->
+      <!-- navbar -->
+
+      <!-- canvastart -->
+
+      <div class="offcanvas offcanvas-start bg-success-subtle" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="cantitle">Leza Farming Management</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+
+          </div>
+
+          <!-- profile -->
+          <div class="d-none d-md-flex  justify-content-center">
+            <img class="rounded" src="<?php
+                                                                if (!empty($d["img_path"])) {
+                                                                    echo $d["img_path"];
+                                                                } else {
+                                                                    echo ("resources/blankuser.png");
+                                                                }
+
+                                                                ?>" height="130px" id="i">
+          </div>
+          <div class="mt-1 text-center">
+            <label for="form-label">
+              <label type="text"><?php echo $d["fname"] ?></label>
+              <label type="text"><?php echo $d["lname"] ?></label>
+            </label>
+          </div>
+          <div class="mt-1 text-center">
+            <label for="form-label">
+              <span><?php echo $d["mobile"] ?></span>
+            </label>
+          </div>
+          <div class="mt-1 text-center">
+            <?php 
+            ?>
+            <label for="form-label">
+              <span> <?php
+                      echo $d["position_name"];
+                      ?> </span>
+            </label>
+          </div>
+
+          <!-- profile -->
+
+          <ul class="navbar-nav ">
+            <li class="my-1">
+              <hr class="table-group-divider">
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3 active">
+                <span class="me-2">
+                  <i class="bi bi-speedometer"></i>
+                </span>
+                <span id="dashtitle">Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="animalStock.php" class="nav-link active">
+                <span class="btn btn-outline-secondary col-11" id="can1">LiveStock details</span>
+              </a>
+            </li>
+            <li>
+              <a href="foodStock.php" class="nav-link active">
+                <span class="btn btn-outline-secondary col-11" id="can2">Food Stock</span>
+
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link active"></a>
+              <span class="btn btn-outline-secondary col-11" id="can3">Production</span>
+            </li>
+            <li>
+              <a href="#" class="nav-link active"></a>
+              <span class="btn btn-outline-secondary col-11" id="can4">Health Monitoring</span>
+            </li>
+            <li>
+              <a href="employeeManagement.php" class="nav-link active">
+                <span class="btn btn-outline-secondary col-11" id="can5">Employee Management</span>
+              </a>
+            </li>
+            <li class="my-1">
+              <hr class="table-group-divider">
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3 active">
+                <span class="me-2">
+                  <i class="bi bi-file-earmark-bar-graph"></i>
+                </span>
+                <span id="can6">Report related live stock</span>
+              </a>
+            </li>
+            <li class="my-1">
+              <hr class="table-group-divider">
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3 active">
+                <span class="me-2">
+                  <i class="bi bi-puzzle-fill"></i>
+                </span>
+                <span id="can7">Manage feeding schedules</span>
+              </a>
+            </li>
+            <li class="my-1">
+              <hr class="table-group-divider">
+            </li>
+            <a href="#" class="nav-link px-3 active">
+              <span class="me-2">
+                <i class="bi bi-bell"></i>
+              </span>
+              <span id="can8">Notification and Alerts</span>
+            </a>
+            <li class="my-1">
+              <hr class="table-group-divider">
+            </li>
+
+        </div>
+        </ul>
       </div>
 
 
 
 
-      <div class="row">
-        <div class="col-8 offset-2">
-          <div class="row">
-            <div class="col-12 mb-3">
-              <div class="row border-primary">
-                <div class="col-12 ">
-                  <div class="row justify-content-center gap-4 ">
-                    <div class="card bg-dark-subtle" style="width: 30rem;">
-                      <div class="card-body">
-                        <h5 class="card-title">LiveStock Overview</h5>
 
-                        <h6 class="card-subtitle mb-2 text-body-secondary mt-3">Upcomming Tasks</h6>
-                        <p class="card-text mt-4">-> Vaccination Cows (Due:July 31)</p>
-                        <p class="card-text">-> Inspect barn Cows (Due:August 31)</p>
 
-                        <hr class="table-group-divider">
+      <!-- canvastart -->
 
-                        <p href="#" class="card-footer">Reminders</p>
-                        <p href="#" class="card-body">-> Tractor maintanance (Due: August 2)</p>
-                      </div>
-                    </div>
-                    <div class="card bg-danger-subtle" style="width: 30rem;">
-                      <div class="card-body">
-                        <h5 class="card-title">Resource Management</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary mt-3">Inventory Summary</h6>
-                        <p class="card-text mt-4">-> Feed: 200Kg</p>
-                        <p class="card-text">-> Medicine: 50 doses</p>
 
-                        <hr class="table-group-divider">
 
-                        <p href="#" class="card-footer">Equipment Status</p>
-                        <p href="#" class="card-body">-> Tractors 3 (1 needs maintanance)</p>
-                      </div>
-                    </div>
-                    <div class="card bg-warning-subtle" style="width: 50rem;">
-                      <div class="card-body text-center">
-                        <h5 class="card-title">Live Stock Overview</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary mt-3">Total LiveStock: 200</h6>
-                        <p class="card-text">-> Cows 100 (10 need health check)</p>
-                        <p class="card-text">-> Sheep 50 (All healthy)</p>
-                        <p class="card-text">-> Pigs 50 (5 underweight)</p>
-                      </div>
-                    </div>
-                    <div class="card bg-info-subtle" style="width: 50rem;">
-                      <div class="card-body">
-                        <h5 class="card-title">Farm Activity Timeline</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary mt-3">Recent Activities</h6>
-                        <p class="card-text text-center">-> Completed task: Vaccinated goats</p>
-                        <p class="card-text text-center">-> Updated feed inventory: 500 Kg of corn added</p>
 
-                        <hr class="table-group-divider">
+      <div class=" container-fluid d-flex justify-content-center mt-4">
+        <div class="row align-items-center">
+          <div class="col-12 offset-1 ms-5 ms-md-0  offset-lg-0 col-md-12">
+            <div class="row">
+              <div class="justify-content-start offset-md-0 ms-5 me-5" style="width: 340px;">
+                <h4 class="text-center fw-bold " id="chartname1">Distribution of Animal Population by Type</h4>
+                <canvas id="animalchart1"></canvas>
+              </div>
+              <div class="justify-content-center mt-5 mt-md-0 ms-5 me-2" style="width: 450px;">
+                <h4 class="text-center fw-bold " id="chartname2">Animal Health Status Overview</h4>
+                <br><br>
+                <canvas id="animalchart2"></canvas>
+              </div>
 
-                        <p href="#" class="card-footer">Daily/Weekly reports</p>
-                        <p class="card-text text-center">-> Milk Production: 500 liters/day</p>
-                        <p class="card-text text-center">-> Average weight gain: 0.5Kg/day</p>
-                      </div>
-                    </div>
 
-                    <div class="card bg-body-secondary" style="width: 30rem;">
-                      <div class="card-body">
-                        <h5 class="card-title">Daily logs</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Feeding logs</h6>
-                        <p class="card-text">July 29: sheep fed with grain mix</p>
-                        <p class="card-text text-center">-> July 29: Sheep fed with grain mix</p>
-                        <p class="card-text text-center">-> July 28: Cows fed with silage</p>
+            </div>
 
-                        <hr class="table-group-divider">
 
-                        <p class="card-text text-center">-> July 30: Cow #123 health check</p>
-                        <p class="card-text text-center">-> July 29: 15 goats Vaccinated</p>
-                      </div>
-                    </div>
-                  </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="container-fluid mt-4">
+
+        <div class="row d-flex justify-content-center">
+
+          <div class="me-2" style="width: 300px;">
+            <div class="row  ">
+              <div class="card bg-primary-subtle" style="width: 25rem;">
+                <div class="card-body">
+
+                  <?php
+                  $rs4 = Database::search("SELECT * FROM `animal` INNER JOIN `animal_type` ON `animal`.`animal_type_id`= `animal_type`.`id` WHERE `type_name` = 'Cattle'");
+                  $num4 = $rs4->num_rows;
+
+                  $rs5 = Database::search("SELECT * FROM `animal` INNER JOIN `animal_type` ON `animal`.`animal_type_id`= `animal_type`.`id` WHERE `type_name` = 'Goat'");
+                  $num5 = $rs5->num_rows;
+
+                  $rs6 = Database::search("SELECT * FROM `animal` INNER JOIN `animal_type` ON `animal`.`animal_type_id`= `animal_type`.`id` WHERE `type_name` = 'Poultry'");
+                  $num6 = $rs6->num_rows;
+                  ?>
+
+                  <h5 class="card-title">Number of Animals</h5>
+
+                  <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Cattles:       <?php
+                                                                                    if ($num4 > 0) {
+                                                                                      echo ($num4);
+                                                                                    } else {
+                                                                                    ?>
+                      0
+                    <?php
+                                                                                    }
+                    ?></h6>
+                  <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Goats:       <?php
+                                                                                    if ($num5 > 0) {
+                                                                                      echo ($num5);
+                                                                                    } else {
+                                                                                    ?>
+                      0
+                    <?php
+                                                                                    }
+                    ?></h6>
+                  <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Poultry:       <?php
+                                                                                    if ($num6 > 0) {
+                                                                                      echo ($num6);
+                                                                                    } else {
+                                                                                    ?>
+                      0
+                    <?php
+                                                                                    }
+                    ?></h6>
+
                 </div>
               </div>
             </div>
           </div>
+
+          <div class="me-2 " style="width: 300px;">
+            <div class="row  ">
+              <div class="card bg-info-subtle" style="width: 25rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Daily/Weekly reports</h5>
+
+                  <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Milk Production: 500 liters/day</h6>
+                  <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Average weight gain: 0.5Kg/day</h6>
+                  <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Average weight gain: 1Kg/day</h6>
+                  <!-- <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Poultry:</h6> -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="width: 300px;">
+            <div class="row">
+              <div class="card bg-primary-subtle" style="width: 25rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Feeding logs</h5>
+
+                  <h6 class="card-subtitle mb-1 text-body-secondary mt-1">July 29: sheep fed with grain mix</h6>
+                  <span>-> july 29: Sheep fed</span>
+                  <span>-> July 28: Cows fed</span>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ms-2" style="width: 300px;">
+            <div class="row">
+              <div class="card bg-info-subtle" style="width: 25rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Helath Overview</h5>
+
+                  <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Upcomming Tasks</h6>
+                  <span>-> Vaccination Cows (Due:July 31)</span>
+                  <span>-> Inspect barn Cows</span>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
+
       </div>
+
+
+
+
     </div>
-
-
-
-
 
 
     <script src="bootstrap.bundle.min.js"></script>
