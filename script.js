@@ -9,7 +9,7 @@ function changeView() {
 function empSignup() {
     var fname = document.getElementById("fname");
     var lname = document.getElementById("lname");
-    var selectPosition =document.getElementById("selectPosition");
+    var selectPosition = document.getElementById("selectPosition");
     var mobile = document.getElementById("mobile");
     var email = document.getElementById("email")
     var username = document.getElementById("username");
@@ -85,7 +85,7 @@ function empSignin() {
 
         }
     }
-    
+
     request.open("POST", "signInProcess.php", true);
     request.send(f);
 
@@ -95,13 +95,13 @@ function forgetPassword() {
     var email = document.getElementById("e")
 
     if (email.value != "") {
-        
+
         var f = new FormData();
         f.append("e", email.value);
 
         var request = new XMLHttpRequest();
         request.onreadystatechange = function () {
-            if (request.readyState==4 & request.status==200) {
+            if (request.readyState == 4 & request.status == 200) {
                 var response = request.responseText;
                 // alert(response);
                 if (response == "Success") {
@@ -122,7 +122,7 @@ function forgetPassword() {
         request.open("POST", "forgetPasswordprocess.php", true);
         request.send(f);
 
-    }else{
+    } else {
         alert("Please enter your email");
     }
 }
@@ -170,7 +170,7 @@ function admSignin() {
 
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
-        if (request.readyState==4 & request.status==200) {
+        if (request.readyState == 4 & request.status == 200) {
             var response = request.responseText;
             // alert(response);
             if (response == "Success") {
@@ -371,7 +371,7 @@ function typeReg() {
     var request = new XMLHttpRequest();
 
     request.onreadystatechange = function () {
-        if (request.readyState==4 & request.status==200) {
+        if (request.readyState == 4 & request.status == 200) {
             var response = request.responseText;
             // alert(response);
 
@@ -401,7 +401,7 @@ function colorReg() {
     var request = new XMLHttpRequest();
 
     request.onreadystatechange = function () {
-        if (request.readyState==4 & request.status==200) {
+        if (request.readyState == 4 & request.status == 200) {
             var response = request.responseText;
             // alert(response);
             if (response == "Success") {
@@ -428,9 +428,9 @@ function breedReg() {
     f.append("b", breed.value);
 
     var request = new XMLHttpRequest();
-    
+
     request.onreadystatechange = function () {
-        if (request.readyState==4 & request.status==200) {
+        if (request.readyState == 4 & request.status == 200) {
             var response = request.responseText;
             // alert(response);
             if (response == "Success") {
@@ -442,7 +442,7 @@ function breedReg() {
                 document.getElementById("msg3").innerHTML = response;
                 document.getElementById("msgDiv3").className = "d-block";
             }
-            
+
         }
     }
 
@@ -457,9 +457,9 @@ function healthReg() {
     f.append("h", health.value);
 
     var request = new XMLHttpRequest();
-    
+
     request.onreadystatechange = function () {
-        if (request.readyState==4 & request.status==200) {
+        if (request.readyState == 4 & request.status == 200) {
             var response = request.responseText;
             // alert(response);
             if (response == "Success") {
@@ -471,7 +471,7 @@ function healthReg() {
                 document.getElementById("msg4").innerHTML = response;
                 document.getElementById("msgDiv4").className = "d-block";
             }
-            
+
         }
     }
 
@@ -487,7 +487,7 @@ function anReg() {
     var age = document.getElementById("age");
     var selectBreed = document.getElementById("selectBreed");
     var selectHealth = document.getElementById("selectHealth");
-    
+
 
     var f = new FormData();
     f.append("id", id.value);
@@ -501,7 +501,7 @@ function anReg() {
     var request = new XMLHttpRequest();
 
     request.onreadystatechange = function () {
-        if (request.readyState==4 & request.status==200) {
+        if (request.readyState == 4 & request.status == 200) {
             var response = request.responseText;
             // alert(response);
             if (response == "Success") {
@@ -532,10 +532,10 @@ function anReg() {
 
 function uploadImg() {
     var img = document.getElementById("imgUploader");
-  
+
     var f = new FormData();
     f.append("i", img.files[0]);
-  
+
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
@@ -550,12 +550,12 @@ function uploadImg() {
             }
         }
     }
-  
+
     request.open("POST", "profileImgUpload.php", true);
     request.send(f);
-  }
+}
 
-  function updateData() {
+function updateData() {
     var fname = document.getElementById("fname");
     var lname = document.getElementById("lname");
     var email = document.getElementById("email");
@@ -570,7 +570,7 @@ function uploadImg() {
     f.append()
 }
 
-  function updateData() {
+function updateData() {
     // alert("ok");
     var fname = document.getElementById("fname");
     var lname = document.getElementById("lname");
@@ -616,9 +616,9 @@ function comreg() {
     f.append("c", com.value);
 
     var request = new XMLHttpRequest();
-    
+
     request.onreadystatechange = function () {
-        if (request.readyState==4 & request.status==200) {
+        if (request.readyState == 4 & request.status == 200) {
             var response = request.responseText;
             // alert(response);
             if (response == "Success") {
@@ -630,7 +630,7 @@ function comreg() {
                 document.getElementById("msg1").innerHTML = response;
                 document.getElementById("msgDiv1").className = "d-block";
             }
-            
+
         }
     }
 
@@ -654,7 +654,7 @@ function supReg() {
     var request = new XMLHttpRequest();
 
     request.onreadystatechange = function () {
-        if (request.readyState==4 & request.status==200) {
+        if (request.readyState == 4 & request.status == 200) {
             var response = request.responseText;
             // alert(response);
             if (response == "Success") {
@@ -694,9 +694,9 @@ function ftypereg() {
     f.append("f", ftr.value);
 
     var request = new XMLHttpRequest();
-    
+
     request.onreadystatechange = function () {
-        if (request.readyState==4 & request.status==200) {
+        if (request.readyState == 4 & request.status == 200) {
             var response = request.responseText;
             // alert(response);
             if (response == "Success") {
@@ -708,7 +708,7 @@ function ftypereg() {
                 document.getElementById("msg1").innerHTML = response;
                 document.getElementById("msgDiv1").className = "d-block";
             }
-            
+
         }
     }
 
@@ -735,7 +735,7 @@ function foodReg() {
     var request = new XMLHttpRequest();
 
     request.onreadystatechange = function () {
-        if (request.readyState==4 & request.status==200) {
+        if (request.readyState == 4 & request.status == 200) {
             var response = request.responseText;
             // alert(response);
             if (response == "Success") {
@@ -747,7 +747,7 @@ function foodReg() {
                 document.getElementById("msgan").innerHTML = response;
                 document.getElementById("msgDivan").className = "d-block";
             }
-            
+
         }
     }
 
@@ -767,4 +767,270 @@ function loadfood() {
 
     request.open("POST", "loadFoodProcess.php", true);
     request.send();
+}
+
+function producttypereg() {
+    var ptr = document.getElementById("ptr");
+
+    var f = new FormData();
+    f.append("p", ptr.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                ptr.value = "";
+                document.getElementById("msg1").innerHTML = response;
+                document.getElementById("msgDiv1").className = "d-block";
+                document.getElementById.apply("msgDiv1").className = "alert alert-success";
+            } else {
+                document.getElementById("msg1").innerHTML = response;
+                document.getElementById("msgDiv1").className = "d-block";
+            }
+
+        }
+    }
+
+    request.open("POST", "productTypeRegProcess.php", true);
+    request.send(f);
+}
+
+function metricreg() {
+    var mtr = document.getElementById("mtr");
+
+    var f = new FormData();
+    f.append("m", mtr.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                mtr.value = "";
+                document.getElementById("msg2").innerHTML = response;
+                document.getElementById("msgDiv2").className = "d-block";
+                document.getElementById.apply("msgDiv2").className = "alert alert-success";
+            } else {
+                document.getElementById("msg2").innerHTML = response;
+                document.getElementById("msgDiv2").className = "d-block";
+            }
+
+        }
+    }
+
+    request.open("POST", "metricRegProcess.php", true);
+    request.send(f);
+}
+
+function productReg() {
+    var pname = document.getElementById("pname");
+    var ptype = document.getElementById("ptype");
+
+    var f = new FormData();
+    f.append("pn", pname.value);
+    f.append("pt", ptype.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                mtr.value = "";
+                document.getElementById("msgpreg").innerHTML = response;
+                document.getElementById("msgDivpreg").className = "d-block";
+                document.getElementById.apply("msgDivpreg").className = "alert alert-success";
+            } else {
+                document.getElementById("msgpreg").innerHTML = response;
+                document.getElementById("msgDivpreg").className = "d-block";
+            }
+
+        }
+    }
+
+    request.open("POST", "addProductProcess.php", true);
+    request.send(f);
+}
+
+function stockReg() {
+    var prtype = document.getElementById("prtype");
+    var prname = document.getElementById("prname");
+    var volume = document.getElementById("volume");
+    var mtype = document.getElementById("mtype");
+    var uprice = document.getElementById("uprice");
+    var mfd = document.getElementById("mfd");
+    var exp = document.getElementById("exp");
+
+    var f = new FormData();
+    f.append("pt", prtype.value);
+    f.append("pn", prname.value);
+    f.append("vol", volume.value);
+    f.append("m", mtype.value);
+    f.append("up", uprice.value);
+    f.append("mfd", mfd.value);
+    f.append("exp", exp.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                prtype.value = "";
+                prname.value = "";
+                volume.value = "";
+                mtype.value = "";
+                uprice.value = "";
+                mfd.value = "";
+                exp.value = "";
+                document.getElementById("msgz").innerHTML = response;
+                document.getElementById("msgDivz").className = "d-block";
+                document.getElementById.apply("msgDivz").className = "alert alert-success";
+            } else {
+                document.getElementById("msgz").innerHTML = response;
+                document.getElementById("msgDivz").className = "d-block";
+            }
+
+        }
+    }
+
+    request.open("POST", "addStockProcess.php", true);
+    request.send(f);
+}
+
+function loadstock() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            document.getElementById("tbf").innerHTML = response;
+        }
+    };
+
+    request.open("POST", "loadStockProcess.php", true);
+    request.send();
+}
+
+function loadbystock() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            document.getElementById("tbb").innerHTML = response;
+        }
+    };
+
+    request.open("POST", "loadbyproductkProcess.php", true);
+    request.send();
+}
+
+function loadstocks() {
+    loadstock();
+    loadbystock();
+}
+
+function removestock() {
+    var sid = document.getElementById("sid");
+    // alert(userid.value);
+    var f = new FormData();
+    f.append("sid", sid.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                document.getElementById("m").innerHTML = "Stock Removed Successfully";
+                document.getElementById("m").className = "alert alert-success";
+                document.getElementById("md").className = "d-block";
+                sid.value = "";
+                loadstock();
+            } else {
+                document.getElementById("m").innerHTML = response;
+                document.getElementById("md").className = "d-block";
+            }
+        }
+    };
+
+    request.open("POST", "deleteStockProcess.php", true);
+    request.send(f);
+
+}
+
+function byproReg() {
+    
+    var antype = document.getElementById("antype");
+    var pname = document.getElementById("pname");
+    var volume = document.getElementById("volume");
+    var uprice = document.getElementById("uprice");
+
+    var f = new FormData();
+    f.append("a", antype.value);
+    f.append("n", pname.value);
+    f.append("v", volume.value);
+    f.append("up", uprice.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "New Stock Added Successfully") {
+                antype.value = "";
+                pname.value = "";
+                volume.value = "";
+                uprice.value = "";
+                document.getElementById("msgz").innerHTML = response;
+                document.getElementById("msgDivz").className = "d-block";
+                document.getElementById.apply("msgDivz").className = "alert alert-success";
+            } else {
+                document.getElementById("msgz").innerHTML = response;
+                document.getElementById("msgDivz").className = "d-block";
+            }
+
+        }
+    }
+
+    request.open("POST", "byproductProcess.php", true);
+    request.send(f);
+
+}
+
+function removebystock() {
+    var byid = document.getElementById("byid");
+    // alert(userid.value);
+    var f = new FormData();
+    f.append("byid", byid.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                document.getElementById("ms").innerHTML = "Stock Removed Successfully";
+                document.getElementById("ms").className = "alert alert-success";
+                document.getElementById("mds").className = "d-block";
+                byid.value = "";
+                loadbystock();
+            } else {
+                document.getElementById("ms").innerHTML = response;
+                document.getElementById("mds").className = "d-block";
+            }
+        }
+    };
+
+    request.open("POST", "deletebyStockProcess.php", true);
+    request.send(f);
 }

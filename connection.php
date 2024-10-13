@@ -9,7 +9,7 @@ class Database
     {
 
         if (!isset(Database::$connection)) {
-            Database::$connection = new mysqli("localhost", "root", "Admin@123", "farmproject", "3307");
+            Database::$connection = new mysqli("localhost", "root", "Admin@123", "newfarmdb", "3307");
         }
     }
 

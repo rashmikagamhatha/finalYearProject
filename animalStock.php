@@ -42,7 +42,7 @@ if (isset($_SESSION["u"])) {
 
                     <!-- category name -->
                     <div class="col-12 mt-2 mb-3">
-                        <a class="text-decoration-none link-dark fs-3 fw-bold">Animal Details List</a>
+                        <a class="text-decoration-none link-dark fs-3 fw-bold">Animal Details</a>
                         &nbsp;&nbsp;
                         <a class="text-decoration-none link-dark fs-6">All Animals &nbsp;&rarr;</a>
                     </div>

@@ -106,11 +106,11 @@ include "connection.php";
                                         <input class="form-control" type="text" id="fcost" />
                                     </div>
                                     <div class="col-4">
-                                        <label class="form-label text-success-emphasis text-center fw-bold">Supplier Mobile</label>
+                                        <label class="form-label text-success-emphasis text-center fw-bold">Company Name</label>
                                         <select class="form-select" id="smobile">
                                             <option value="">Select</option>
                                             <?php
-                                            $rs = Database::search("SELECT * FROM `supplier`");
+                                            $rs = Database::search("SELECT * FROM `company`");
                                             $num = $rs->num_rows;
 
                                             for ($x = 0; $x < $num; $x++) {
@@ -118,7 +118,7 @@ include "connection.php";
                                                 $data = $rs->fetch_assoc();
 
                                             ?>
-                                                <option value="<?php echo ($data["mobile"]); ?>"><?php echo ($data["mobile"]); ?></option>
+                                                <option value="<?php echo ($data["id"]); ?>"><?php echo ($data["c_name"]); ?></option>
                                             <?php
                                             }
 
@@ -145,11 +145,12 @@ include "connection.php";
 
             </div>
         </div>
+    </div>
 
 
 
-        <script src="bootstrap.bundle.min.js"></script>
-        <script src="script.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

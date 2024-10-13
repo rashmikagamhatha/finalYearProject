@@ -10,8 +10,8 @@ $smobile = $_POST["sm"];
 
 if (empty($foodname)) {
     echo("Please Enter Food Name");
-}else if (strlen($foodname) > 20) {
-    echo("Food Name should be Less than 20 characters");
+}else if (strlen($foodname) > 35) {
+    echo("Food Name should be Less than 35 characters");
 }else if (empty($foodtype)) {
     echo("Please Select a Food Type");
 }else if (empty($foodqty)) {
@@ -34,7 +34,7 @@ if (empty($foodname)) {
     if ($num > 0) {
         echo("This food is Already Exists");
     }else{
-        Database::iud("INSERT INTO `food_stock` (`f_name`, `food_type_id`, `qty`, `date`, `cost`, `supplier_mobile`)
+        Database::iud("INSERT INTO `food_stock` (`f_name`, `food_type_id`, `qty`, `date`, `cost`, `company_id`)
          VALUES ('".$foodname."','".$foodtype."', '".$foodqty."', '".$fooddate."', '".$foodcost."', '".$smobile."')");
          echo("Success");
     }

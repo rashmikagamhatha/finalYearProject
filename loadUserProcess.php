@@ -2,7 +2,7 @@
 
 include "connection.php";
 
-$rs = Database::search("SELECT * FROM `employee` INNER JOIN `position` ON `employee`.`position_id` = `position`.`id`  WHERE `user_type_id` = '2' ORDER BY `employee`.`emp_id` ASC");
+$rs = Database::search("SELECT * FROM `employee` INNER JOIN `position` ON `employee`.`position_id` = `position`.`id` ORDER BY `employee`.`emp_id` ASC");
 $num = $rs->num_rows;
 
 for ($i = 0; $i < $num; $i++) {

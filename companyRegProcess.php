@@ -6,7 +6,7 @@ $company = $_POST["c"];
 
 if (empty($company)) {
     echo("Please Enter Company Name");
-} else if (strlen($company) > 50) {
+} else if (strlen($company) > 20) {
     echo("Company name Should be less than 20 characters");
 } else {
     $rs = Database::search("SELECT * FROM `company` WHERE `c_name` = '".$company."'");

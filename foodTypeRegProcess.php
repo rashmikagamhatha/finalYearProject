@@ -6,7 +6,7 @@ $foodtype = $_POST["f"];
 
 if (empty($foodtype)) {
     echo("Please Enter Food Type");
-} else if (strlen($foodtype) > 45) {
+} else if (strlen($foodtype) > 20) {
     echo("Food Type Should be less than 20 characters");
 } else {
     $rs = Database::search("SELECT * FROM `food_type` WHERE `type` = '".$foodtype."'");

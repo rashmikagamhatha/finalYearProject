@@ -27,7 +27,7 @@
 
                             <!-- topic -->
                             <div class="col-12 mt-2">
-                                <h3 class="text-dark fw-bold">Forget password</h3>
+                                <h3 class="text-dark fw-bold">Forget password.</h3>
                             </div>
 
                             <div class="col-12 mt-2">

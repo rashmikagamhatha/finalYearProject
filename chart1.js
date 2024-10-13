@@ -1,4 +1,6 @@
 
+
+
 const ctx = document.getElementById('animalchart1');
 
 new Chart(ctx, {
