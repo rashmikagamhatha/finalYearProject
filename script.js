@@ -967,7 +967,7 @@ function removestock() {
 }
 
 function byproReg() {
-    
+
     var antype = document.getElementById("antype");
     var pname = document.getElementById("pname");
     var volume = document.getElementById("volume");
@@ -1034,3 +1034,638 @@ function removebystock() {
     request.open("POST", "deletebyStockProcess.php", true);
     request.send(f);
 }
+
+
+function removeanimal() {
+    var aid = document.getElementById("aid");
+    // alert(userid.value);
+    var f = new FormData();
+    f.append("aid", aid.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            alert(response);
+        }
+    };
+
+    request.open("POST", "removeanimalprocess.php", true);
+    request.send(f);
+}
+
+function editanimal() {
+    var aid = document.getElementById("aid");
+    // alert(userid.value);
+    var f = new FormData();
+    f.append("aid", aid.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            if (response == "Success") {
+                window.location = "editanimaldetails.php";
+            } else {
+                alert(response);
+            }
+        }
+    };
+
+    request.open("POST", "animalprofile.php", true);
+    request.send(f);
+}
+
+function updateAnData() {
+    // alert("OK");
+    var weight = document.getElementById("weight");
+    var age = document.getElementById("age");
+    var health = document.getElementById("health");
+    var vdetails = document.getElementById("vdetails");
+    var binfo = document.getElementById("binfo");
+    var feed = document.getElementById("feed");
+
+    var f = new FormData();
+    f.append("w", weight.value);
+    f.append("a", age.value);
+    f.append("h", health.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            // alert(response);
+            // swal("lezafarming", response);
+            if (response == "Update Successfully") {
+                document.getElementById("msg2").innerHTML = response;
+                document.getElementById("msg2").className = "alert alert-success";
+                document.getElementById("msgDiv2").className = "d-block";
+            } else {
+                document.getElementById("msg2").innerHTML = response;
+                document.getElementById("msgDiv2").className = "d-block";
+            }
+        }
+    }
+
+    request.open("POST", "updateAnimalProfileProcess.php", true);
+    request.send(f);
+
+}
+
+
+function loadProducta() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            document.getElementById("aas").innerHTML = response;
+        }
+    };
+
+    request.open("POST", "loadSaleProductProcess.php", true);
+    request.send();
+}
+
+function addtocart(x) {
+    // alert(x);
+
+    var stockId = x;
+    var qty = document.getElementById("qty");
+    var selectCustomer = document.getElementById("selectCustomer")
+
+    if (qty.value > 0) {
+
+        var f = new FormData();
+        f.append("s", stockId);
+        f.append("q", qty.value);
+        f.append("sc", selectCustomer.value);
+
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                var response = request.responseText;
+                // alert(response);
+                swal("lesafarming", response);
+            }
+        }
+        request.open("POST", "addtoCartProcess.php");
+        request.send(f);
+
+    } else {
+        alert("Please add a valid quantity");
+    }
+}
+
+
+function cusReg() {
+    var mobile = document.getElementById("mobile");
+    var name = document.getElementById("name");
+    var email = document.getElementById("email");
+
+    var f = new FormData();
+    f.append("m", mobile.value);
+    f.append("n", name.value);
+    f.append("e", email.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                document.getElementById("msgan").innerHTML = response;
+                document.getElementById("msgDivan").className = "d-block";
+                document.getElementById.apply("msgDivan").className = "alert alert-success";
+                antype.value = "";
+            } else {
+                document.getElementById("msgan").innerHTML = response;
+                document.getElementById("msgDivan").className = "d-block";
+            }
+        }
+    }
+
+
+    request.open("POST", "customerRegProcess.php", true);
+    request.send(f);
+}
+
+function loadCus() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            document.getElementById("tbc").innerHTML = response;
+        }
+    };
+
+    request.open("POST", "loadCustomerProcess.php", true);
+    request.send();
+}
+
+function checkOut() {
+    var selectCustomer = document.getElementById("selectCustomer");
+
+    if (selectCustomer.value > 0) {
+        var f = new FormData();
+        f.append("sc", selectCustomer.value);
+
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                var response = request.responseText;
+                // alert(response);
+                if (response == "Success") {
+                    window.location = "loadCart.php";
+                }
+            }
+        }
+        request.open("POST", "checkoutProcess.php");
+        request.send(f);
+    } else {
+        swal("lesafarming", response);
+    }
+
+}
+
+function loadCart() {
+    // alert("OK");
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            var response = request.responseText;
+            // alert(response);
+            document.getElementById("cartBody").innerHTML = response;
+        }
+    };
+
+    request.open("POST", "loadCartItemsProcess.php", true);
+    request.send();
+}
+
+function incrementCartQty(x) {
+    // alert(x);
+    var cartId = x;
+    var qty = document.getElementById("qty" + x);
+    // alert(qty.value);
+    var newQty = parseInt(qty.value) + 1;
+    // alert(newQty);
+    var f = new FormData();
+    f.append("c", cartId);
+    f.append("q", newQty);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                qty.value = parseInt(qty.value) + 1;
+                loadCart();
+            } else {
+                // alert(response);
+                swal("newTechonline", response);
+            }
+        }
+    }
+    request.open("POST", "updateCartQtyProcess.php", true);
+    request.send(f);
+}
+
+function decrementCartQty(x) {
+    // alert(x);
+
+    var cartId = x;
+    var qty = document.getElementById("qty" + x);
+    // alert(qty.value);
+    var newQty = parseInt(qty.value) - 1;
+    // alert(newQty);
+    var f = new FormData();
+    f.append("c", cartId);
+    f.append("q", newQty);
+
+    if (newQty > 0) {
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                var response = request.responseText;
+                // alert(response);
+                if (response == "Success") {
+                    qty.value = parseInt(qty.value) - 1;
+                    loadCart();
+                } else {
+                    // alert(response);
+                    swal("newTechonline", response);
+                }
+            }
+        }
+        request.open("POST", "updateCartQtyProcess.php", true);
+        request.send(f);
+    }
+}
+
+function removeCart(x) {
+    // alert(x);
+    if (confirm("Are You Sure Deleting This Item?")) {
+
+        var f = new FormData();
+        f.append("c", x);
+
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == 200) {
+                var response = request.responseText;
+                alert(response);
+                reload();
+            }
+        };
+        request.open("POST", "removeCartProcess.php", true);
+        request.send(f);
+
+    }
+}
+
+
+function checkOutbuy(x) {
+    // alert(x);
+
+    var f = new FormData();
+    f.append("cart", true);
+    f.append("n", x);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                window.location = "invoice.php";
+            }
+
+        }
+    }
+
+
+    request.open("POST", "paymentProcess.php", true);
+    request.send(f);
+}
+
+
+
+function finish() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            var response = request.responseText;
+            // alert(response);
+        }
+    };
+
+    request.open("POST", "deleteInvoiceItems.php", true);
+    request.send();
+}
+
+function removefood() {
+
+    var fid = document.getElementById("fid");
+
+    var f = new FormData();
+    f.append("fid", fid.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Success") {
+                document.getElementById("m").innerHTML = response;
+                document.getElementById("md").className = "d-block";
+                document.getElementById.apply("md").className = "alert alert-success";
+                antype.value = "";
+            } else {
+                document.getElementById("m").innerHTML = response;
+                document.getElementById("md").className = "d-block";
+            }
+        }
+    };
+
+    request.open("POST", "removefoodprocess.php", true);
+    request.send(f);
+}
+
+function animalHealthProfile() {
+    // alert("OK");
+    var aid = document.getElementById("selectType");
+    // alert(userid.value);
+    var f = new FormData();
+    f.append("aid", aid.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            if (response == "Success") {
+                window.location = "animalHealthProfile.php";
+                // alert(response);
+            } else {
+                alert(response);
+            }
+        }
+    };
+
+    request.open("POST", "animalhealthprocess.php", true);
+    request.send(f);
+}
+
+function updateAnHealth() {
+    // alert("ok");
+
+    var weight = document.getElementById("weight");
+    var age = document.getElementById("age");
+    var health = document.getElementById("health");
+    var mdetails = document.getElementById("mdetails");
+    var vdetails = document.getElementById("vdetails");
+    var wdetails = document.getElementById("wdetails");
+    var tdetails = document.getElementById("tdetails");
+
+    var f = new FormData();
+    f.append("md", mdetails.value);
+    f.append("vd", vdetails.value);
+    f.append("wd", wdetails.value);
+    f.append("td", tdetails.value);
+
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            // alert(response);
+            if (response == "Update Successfully") {
+                document.getElementById("msg2").innerHTML = response;
+                document.getElementById("msg2").className = "alert alert-success";
+                document.getElementById("msgDiv2").className = "d-block";
+            } else {
+                document.getElementById("msg2").innerHTML = response;
+                document.getElementById("msgDiv2").className = "d-block";
+            }
+
+        }
+    };
+
+    request.open("POST", "animalHealthUpdateProcess.php", true);
+    request.send(f);
+
+}
+
+function loadfeeding() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            document.getElementById("tbmf").innerHTML = response;
+        }
+    };
+
+    request.open("POST", "loadfeedingProcess.php", true);
+    request.send();
+}
+
+
+function feedschedreg() {
+    var atype = document.getElementById("atype");
+    var fotype = document.getElementById("fotype");
+    var foname = document.getElementById("foname");
+    var t1 = document.getElementById("t1");
+    var t2 = document.getElementById("t2");
+
+    var f = new FormData();
+    f.append("at", atype.value);
+    f.append("fot", fotype.value);
+    f.append("fon", foname.value);
+    f.append("t1", t1.value);
+    f.append("t2", t2.value);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            alert(response);
+        }
+    };
+
+    request.open("POST", "manageFeedingAddProcess.php", true);
+    request.send(f);
+
+}
+
+function removefeedings() {
+    var ftid = document.getElementById("fid");
+
+    var f = new FormData();
+    f.append("fid", ftid.value);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            alert(response);
+        }
+    };
+
+    request.open("POST", "deleteFeedingitemsprocess.php", true);
+    request.send(f);
+}
+
+function vccreminder() {
+   var atype = document.getElementById("atype");
+   var vdetails = document.getElementById("vdetails");
+   var date = document.getElementById("date");
+   var time = document.getElementById("time");
+
+   var f = new FormData();
+   f.append("vdt", vdetails.value);
+   f.append("date", date.value);
+   f.append("time", time.value);
+
+   var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 & request.status == 200) {
+            var response = request.responseText;
+            alert(response);
+        }
+    };
+
+    request.open("POST", "addvaccinedetailsprocess.php", true);
+    request.send(f);
+}
+
+
+
+// vaccreminder
+document.getElementById('reminderForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const message = document.getElementById('message').value;
+    const date = document.getElementById('reminderDate').value;
+    const time = document.getElementById('reminderTime').value;
+
+    fetch('add_reminder.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message, date, time })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // alert('Reminder Added!');
+                swal("Lezafarming", "Reminder Added!");
+                loadReminders();
+            } else {
+                alert('Not added');
+            }
+        });
+});
+
+function loadReminders() {
+    fetch('get_reminders.php')
+        .then(response => response.json())
+        .then(data => {
+            const remindersList = document.getElementById('remindersList');
+            remindersList.innerHTML = '';
+            data.vaccination_reminder.forEach(reminder => {
+                const reminderTime = new Date(`${reminder.reminder_date}T${reminder.reminder_time}`);
+                const currentTime = new Date();
+
+                // Check if the reminder time is in the future
+                if (reminderTime > currentTime) {
+                    const div = document.createElement('div');
+                    div.textContent = `${reminder.message} - ${reminder.reminder_date} ${reminder.reminder_time}`;
+
+                    // Set an interval to check when to display the reminder
+                    const interval = setInterval(() => {
+                        const now = new Date();
+                        if (now >= reminderTime) {
+                            // alert(`Message: ${reminder.message}`);
+                            swal("Lezafarming", `Message: ${reminder.message}`);
+                            document.getElementById("msga").innerHTML = reminder.message;
+                            document.getElementById("msgDiva").className = "d-block";
+                            div.textContent += " (Reminder Seened)";
+                            clearInterval(interval);
+                        }
+                    }, 1000); // Check every second
+
+                    remindersList.appendChild(div);
+                }
+            });
+        });
+}
+
+document.addEventListener('DOMContentLoaded', loadReminders);
+
+
+
+document.getElementById('reminderForm1').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const message = document.getElementById('message').value;
+    const date = document.getElementById('reminderDate').value;
+    const time = document.getElementById('reminderTime').value;
+
+    fetch('add_reminder.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message, date, time })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // alert('Reminder Added!');
+                swal("Lezafarming", "Reminder Added!");
+                loadReminders();
+            } else {
+                alert('Not added');
+            }
+        });
+});
+
+
+function loadReminders1() {
+    fetch('get_reminders1.php')
+        .then(response => response.json())
+        .then(data => {
+            const remindersList = document.getElementById('remindersList');
+            remindersList.innerHTML = '';
+            data.feeding_reminder.forEach(reminder => {
+                const reminderTime = new Date(`${reminder.reminder_date}T${reminder.reminder_time}`);
+                const currentTime = new Date();
+
+                // Check if the reminder time is in the future
+                if (reminderTime > currentTime) {
+                    const div = document.createElement('div');
+                    div.textContent = `${reminder.message} - ${reminder.reminder_date} ${reminder.reminder_time}`;
+
+                    // Set an interval to check when to display the reminder
+                    const interval = setInterval(() => {
+                        const now = new Date();
+                        if (now >= reminderTime) {
+                            // alert(`Message: ${reminder.message}`);
+                            swal("Lezafarming", `Message: ${reminder.message}`);
+                            document.getElementById("msga").innerHTML = reminder.message;
+                            document.getElementById("msgDiva").className = "d-block";
+                            div.textContent += " (Reminder Seened)";
+                            clearInterval(interval);
+                        }
+                    }, 1000); // Check every second
+
+                    remindersList.appendChild(div);
+                }
+            });
+        });
+}
+
+document.addEventListener('DOMContentLoaded', loadReminders1);

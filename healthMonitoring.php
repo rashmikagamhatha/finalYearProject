@@ -19,7 +19,7 @@ if (isset($_SESSION["u"])) {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Livestock Management</title>
+            <title>Health Management</title>
             <link rel="stylesheet" href="bootstrap.min.css">
             <link rel="stylesheet" href="style.css">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -42,9 +42,8 @@ if (isset($_SESSION["u"])) {
 
                     <!-- category name -->
                     <div class="col-12 mt-2 mb-3">
-                        <a class="text-decoration-none link-dark fs-3 fw-bold">Animal Details</a>
-                        &nbsp;&nbsp;
-                        <a class="text-decoration-none link-dark fs-6">All Animals &nbsp;&rarr;</a>
+                        <a class="text-decoration-none link-dark fs-3 fw-bold">Animal Health Monitoring</a>
+
                     </div>
                     <!-- category name end-->
 
@@ -54,20 +53,35 @@ if (isset($_SESSION["u"])) {
                         </div>
                     </div>
 
-                    <div class="row d-flex justify-content-center mt-4 mb-4">
-                        <a class="btn btn-info text-white fw-bold col-5" href="manageAnimals.php">Animal Management</a>
-                    </div>
-
                     <div class="col-4 col-md-8 mb-3" id="printAr">
-                        <h2 class="text-center mb-2 fw-bold">Cattle Report</h2>
+                        <h2 class="text-center mb-2 fw-bold">Cattle</h2>
                         <br>
 
                         <div class="row d-flex justify-content-end mt-4 mb-4">
-                            <div class="col-2">
-                                <input type="text" class="form-control bg-dark-subtle " placeholder="AnimalId" id="aid" />
-                            </div>
-                            <i class="col-1 me-2 btn btn-outline-danger bi bi-trash fw-bold" onclick="removeanimal();"></i>
-                            <i class="col-1 me-2 btn btn-outline-success bi bi-pencil-square fw-bold" onclick="editanimal();"></i>
+                            
+                            <label class="col-3 text-end form-label text-success-emphasis fw-bold">Animal Type</label>
+                                <div class="col-4">
+                                    <select class="form-select" id="selectType">
+                                        <option value="">Select</option>
+                                        <?php
+                                        $rs = Database::search("SELECT * FROM `animal`");
+                                        $num = $rs->num_rows;
+
+                                        for ($x = 0; $x < $num; $x++) {
+
+                                            $data = $rs->fetch_assoc();
+
+                                        ?>
+                                            <option value="<?php echo ($data["an_id"]); ?>"><?php echo ($data["an_id"]); ?></option>
+                                        <?php
+                                        }
+
+                                        ?>
+                                    </select>
+                                </div>
+
+                            
+                            <i class="col-1 me-2 btn btn-outline-danger bi bi-pencil-square fw-bold" onclick="animalHealthProfile();"></i>
                         </div>
 
                         <div class="row">
@@ -94,12 +108,7 @@ if (isset($_SESSION["u"])) {
 
                     </div>
 
-                    <div class="container-fluid row">
-                        <div class="col-4 col-md-8 mb-3 d-flex justify-content-end container mt-5 mb-5">
-                            <i class="btn btn-outline-danger fw-bold col-1 bi bi-printer" onclick="printDiv();"></i>
-                            <!-- <button class="btn btn-outline-dark col-2" onclick="printDiv();">Print</button> -->
-                        </div>
-                    </div>
+
 
 
                     <div class="col-8">
@@ -109,7 +118,7 @@ if (isset($_SESSION["u"])) {
                     </div>
 
                     <div class="col-4 col-md-8 mb-3" id="printAr2">
-                        <h2 class="text-center mb-2 fw-bold">Goat Report</h2>
+                        <h2 class="text-center mb-2 fw-bold">Goat</h2>
                         <br>
                         <div class="row">
                             <table class="table signup_box">
@@ -134,12 +143,7 @@ if (isset($_SESSION["u"])) {
                         </div>
                     </div>
 
-                    <div class="container-fluid row">
-                        <div class="col-4 col-md-8 mb-3 d-flex justify-content-end container mt-5 mb-5">
-                            <i class="btn btn-outline-danger fw-bold col-1 bi bi-printer" onclick="printDiv2();"></i>
-                            <!-- <button class="btn btn-outline-dark col-2" onclick="printDiv2();">Print</button> -->
-                        </div>
-                    </div>
+
 
                     <div class="col-8">
                         <div class="d-none" id="md" onclick="reload();">
@@ -149,7 +153,7 @@ if (isset($_SESSION["u"])) {
 
 
                     <div class="col-4 col-md-8 mb-3" id="printAr3">
-                        <h2 class="text-center mb-2 fw-bold">Poultry Report</h2>
+                        <h2 class="text-center mb-2 fw-bold">Poultry</h2>
                         <br>
                         <div class="row">
                             <table class="table signup_box">
@@ -174,12 +178,6 @@ if (isset($_SESSION["u"])) {
                         </div>
                     </div>
 
-                    <div class="container-fluid row">
-                        <div class="col-4 col-md-8 mb-3 d-flex justify-content-end container mt-5 mb-5">
-                            <i class="btn btn-outline-danger fw-bold col-1 bi bi-printer" onclick="printDiv3();"></i>
-                            <!-- <button class="btn btn-outline-dark col-2" onclick="printDiv3();">Print</button> -->
-                        </div>
-                    </div>
 
                 </div>
             </div>

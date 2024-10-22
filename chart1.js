@@ -52,7 +52,7 @@ new Chart(ctz, {
     labels: ['Healthy', 'Underweight', 'Overweight', 'Sick', 'Pregnant '],
     datasets: [{
       label: 'count',
-      data: [6, 5, 8, 8, 5],
+      data: [18, 5, 3, 2, 5],
       fill: false,
       borderColor: 'rgb(0, 255, 255)',
       tension: 0.1

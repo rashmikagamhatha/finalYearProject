@@ -16,6 +16,6 @@ if (empty($sid)) {
             Database::iud("DELETE FROM `product_stock`  WHERE `st_id` = '" . $sid . "'");
             echo ("Success");
     } else {
-        echo ("Invalid User Id");
+        echo ("Invalid Stock Id");
     }
 }

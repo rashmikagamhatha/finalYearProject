@@ -37,12 +37,11 @@
               <li><a class="dropdown-item" href="login.php">Sign In</a></li>
               <li><a class="dropdown-item" onclick="signOut()">Sign Out</a></li>
               <hr class="table-group-divider">
-              <li><a class="dropdown-item text-danger" href="#">about us</a></li>
             </ul>
           </div>
 
 
-          <a href="#"><img src="resources/bell-fill.svg" style="width: 25px; height: 25px;" alt="" srcset=""></a>
+          <a href="reminder.php"><img src="resources/bell-fill.svg" style="width: 25px; height: 25px;" alt="" srcset=""></a>
         </form>
 
       </div>

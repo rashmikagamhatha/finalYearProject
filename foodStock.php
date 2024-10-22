@@ -47,15 +47,23 @@ if (isset($_SESSION["u"])) {
             </div>
             <!-- category name end-->
 
+
+            <div class="row d-flex justify-content-center mt-4 mb-4">
+                <a class="btn btn-outline-info fw-bold col-2 me-1" href="supplier.php">Manage Suppliers</a>
+                <a class="btn btn-outline-info fw-bold col-2 ms-1" href="manageFoods.php">Manage Foods</a>
+            </div>
+
             <div class="col-8">
                 <div class="d-none" id="md" onclick="reload();">
                     <div class="alert alert-danger" id="m"></div>
                 </div>
             </div>
 
-            <div class="row d-flex justify-content-center mt-4 mb-4">
-                <a class="btn btn-outline-info fw-bold col-2 me-1" href="supplier.php">Manage Suppliers</a>
-                <a class="btn btn-outline-info fw-bold col-2 ms-1" href="manageFoods.php">Manage Foods</a>
+            <div class="row d-flex justify-content-end mt-4 mb-4 me-5">
+                <div class="col-2">
+                    <input type="text" class="form-control bg-dark-subtle " placeholder="food Id" id="fid" />
+                </div>
+                <i class="col-1 me-2 btn btn-outline-danger bi bi-trash fw-bold" onclick="removefood();"></i>
             </div>
 
 
@@ -68,11 +76,9 @@ if (isset($_SESSION["u"])) {
                             <tr>
                                 <th class="bg-dark-subtle">Food Id</th>
                                 <th class="bg-dark-subtle">Food Name</th>
-                                <th class="bg-dark-subtle">Food Type</th>
                                 <th class="bg-dark-subtle">QTY(kg)</th>
                                 <th class="bg-dark-subtle">Date</th>
                                 <th class="bg-dark-subtle">Cost</th>
-                                <th class="bg-dark-subtle">Company Name</th>
                             </tr>
                         </thead>
                         <tbody id="tbf">
