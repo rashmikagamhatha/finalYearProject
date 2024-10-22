@@ -25,7 +25,7 @@ if (isset($_SESSION["u"])) {
             <link rel="icon" href="resources/harvest_11296852.png">
         </head>
 
-        <body class="backgroundImg" onload="loadProducta();">
+        <body class="backgroundImg4 container-fluid" onload="loadProducta();">
 
 
             <!-- navbar  -->
@@ -33,9 +33,15 @@ if (isset($_SESSION["u"])) {
             <!-- navbar  -->
 
             <br><br><br>
+
+            <div class="container mt-3">
+                <a href="dashboard.php"><img src="resources/back.png" height="50" ;></a>
+            </div>
+
+            <br><br><br>
             <div class="row container-fluid">
                 <div class="offset-3 col-4 text-center">
-                    <label class="form-label text-success-emphasis text-center fw-bold">Select A Customer</label>
+                    <label class="form-label text-light text-center fw-bold">Select A Customer</label>
                     <select class="form-select" id="selectCustomer">
                         <option value="">Select</option>
                         <?php
@@ -68,7 +74,7 @@ if (isset($_SESSION["u"])) {
             </div>
 
             <div class="d-flex flex-column align-items-end">
-                <a class="btn btn-outline-danger col-2 me-5 mt-3 mb-4" onclick="checkOut();">CHKECKOUT</a>
+                <a class="btn btn-outline-light col-2 me-5 mt-3 mb-4" onclick="checkOut();">CHKECKOUT</a>
             </div>
 
             <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

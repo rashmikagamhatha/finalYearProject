@@ -26,7 +26,7 @@ if (isset($_SESSION["u"])) {
             <link rel="icon" href="resources/harvest_11296852.png">
         </head>
 
-        <body class="backgroundImg">
+        <body class="backgroundImg4">
 
 
             <div class="container-fluid">
@@ -36,13 +36,13 @@ if (isset($_SESSION["u"])) {
                     </div>
                     <!-- category name -->
                     <div class="col-12 mt-5 mb-3">
-                        <a class="text-decoration-none link-dark fs-3 fw-bold">Manure Management</a>
+                        <a class="text-decoration-none link-light fs-3 fw-bold">Manure Management</a>
                         &nbsp;&nbsp;
                     </div>
                     <!-- category name end-->
 
                     <div class="col-12 mt-5 mb-3 d-flex justify-content-center">
-                        <a class="text-decoration-none text-success-emphasis fs-3 fw-bold">By-Products Register</a>
+                        <a class="text-decoration-none text-light fs-3 fw-bold">By-Products Register</a>
                     </div>
 
                     <!-- signupbox  -->

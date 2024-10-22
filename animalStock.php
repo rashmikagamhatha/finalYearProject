@@ -26,7 +26,7 @@ if (isset($_SESSION["u"])) {
             <link rel="icon" href="resources/harvest_11296852.png">
         </head>
 
-        <body class="backgroundImg" onload="loadAnimal();">
+        <body class="backgroundImg1" onload="loadAnimal();">
 
             <!-- navbar  -->
             <?php include "adminNavbar.php"; ?>
@@ -42,9 +42,9 @@ if (isset($_SESSION["u"])) {
 
                     <!-- category name -->
                     <div class="col-12 mt-2 mb-3">
-                        <a class="text-decoration-none link-dark fs-3 fw-bold">Animal Details</a>
+                        <a class="text-decoration-none link-light fs-3 fw-bold">Animal Details</a>
                         &nbsp;&nbsp;
-                        <a class="text-decoration-none link-dark fs-6">All Animals &nbsp;&rarr;</a>
+                        <a class="text-decoration-none link-light fs-6">All Animals &nbsp;&rarr;</a>
                     </div>
                     <!-- category name end-->
 
@@ -55,20 +55,22 @@ if (isset($_SESSION["u"])) {
                     </div>
 
                     <div class="row d-flex justify-content-center mt-4 mb-4">
-                        <a class="btn btn-info text-white fw-bold col-5" href="manageAnimals.php">Animal Management</a>
+                        <a class="btn btn-outline-light  fw-bold col-5" href="manageAnimals.php">Animal Management</a>
                     </div>
 
-                    <div class="col-4 col-md-8 mb-3" id="printAr">
-                        <h2 class="text-center mb-2 fw-bold">Cattle Report</h2>
-                        <br>
-
-                        <div class="row d-flex justify-content-end mt-4 mb-4">
+                    <div class="row d-flex justify-content-end mt-4 mb-4">
                             <div class="col-2">
                                 <input type="text" class="form-control bg-dark-subtle " placeholder="AnimalId" id="aid" />
                             </div>
-                            <i class="col-1 me-2 btn btn-outline-danger bi bi-trash fw-bold" onclick="removeanimal();"></i>
-                            <i class="col-1 me-2 btn btn-outline-success bi bi-pencil-square fw-bold" onclick="editanimal();"></i>
+                            <i class="col-1 me-2 btn btn-danger bi bi-trash fw-bold" onclick="removeanimal();"></i>
+                            <i class="col-1 me-2 btn btn-success bi bi-pencil-square fw-bold" onclick="editanimal();"></i>
                         </div>
+
+                    <div class="col-4 col-md-8 mb-3" id="printAr">
+                        <h2 class="text-center mb-2 text-light fw-bold">Cattle Report</h2>
+                        <br>
+
+                        
 
                         <div class="row">
                             <table class="table signup_box">
@@ -96,7 +98,7 @@ if (isset($_SESSION["u"])) {
 
                     <div class="container-fluid row">
                         <div class="col-4 col-md-8 mb-3 d-flex justify-content-end container mt-5 mb-5">
-                            <i class="btn btn-outline-danger fw-bold col-1 bi bi-printer" onclick="printDiv();"></i>
+                            <i class="btn btn-secondary fw-bold col-1 bi bi-printer" onclick="printDiv();"></i>
                             <!-- <button class="btn btn-outline-dark col-2" onclick="printDiv();">Print</button> -->
                         </div>
                     </div>
@@ -109,7 +111,7 @@ if (isset($_SESSION["u"])) {
                     </div>
 
                     <div class="col-4 col-md-8 mb-3" id="printAr2">
-                        <h2 class="text-center mb-2 fw-bold">Goat Report</h2>
+                        <h2 class="text-center mb-2 text-light fw-bold">Goat Report</h2>
                         <br>
                         <div class="row">
                             <table class="table signup_box">
@@ -136,7 +138,7 @@ if (isset($_SESSION["u"])) {
 
                     <div class="container-fluid row">
                         <div class="col-4 col-md-8 mb-3 d-flex justify-content-end container mt-5 mb-5">
-                            <i class="btn btn-outline-danger fw-bold col-1 bi bi-printer" onclick="printDiv2();"></i>
+                            <i class="btn btn-secondary fw-bold col-1 bi bi-printer" onclick="printDiv2();"></i>
                             <!-- <button class="btn btn-outline-dark col-2" onclick="printDiv2();">Print</button> -->
                         </div>
                     </div>
@@ -149,7 +151,7 @@ if (isset($_SESSION["u"])) {
 
 
                     <div class="col-4 col-md-8 mb-3" id="printAr3">
-                        <h2 class="text-center mb-2 fw-bold">Poultry Report</h2>
+                        <h2 class="text-center mb-2 text-light fw-bold">Poultry Report</h2>
                         <br>
                         <div class="row">
                             <table class="table signup_box">
@@ -176,7 +178,7 @@ if (isset($_SESSION["u"])) {
 
                     <div class="container-fluid row">
                         <div class="col-4 col-md-8 mb-3 d-flex justify-content-end container mt-5 mb-5">
-                            <i class="btn btn-outline-danger fw-bold col-1 bi bi-printer" onclick="printDiv3();"></i>
+                            <i class="btn btn-secondary fw-bold col-1 bi bi-printer" onclick="printDiv3();"></i>
                             <!-- <button class="btn btn-outline-dark col-2" onclick="printDiv3();">Print</button> -->
                         </div>
                     </div>

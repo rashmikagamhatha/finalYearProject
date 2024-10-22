@@ -4,7 +4,7 @@ header('Content-Type: application/json');
 $host = 'localhost'; // ඔබේ දත්ත ගබඩාව
 $dbname = 'newfarmdb';
 $user = 'root';
-$pass = 'Sud123';
+$pass = 'Admin@123';
 
 $data = json_decode(file_get_contents('php://input'), true);
 $message = $data['message'];

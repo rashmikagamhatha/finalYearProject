@@ -38,17 +38,21 @@ include "connection.php";
 
                             <div class="col-12 mt-2">
                                 <div class="row">
-                                    <div class="col-4 ">
+                                    <div class="col-3 ">
                                         <label class="form-label text-success-emphasis fw-bold">Customer Mobile</label>
                                         <input class="form-control" type="text" id="mobile" />
                                     </div>
-                                    <div class="col-4 ">
+                                    <div class="col-3 ">
                                         <label class="form-label text-success-emphasis fw-bold">Customer Name</label>
                                         <input class="form-control" type="text" id="name" />
                                     </div>
-                                    <div class="col-4 ">
+                                    <div class="col-3 ">
                                         <label class="form-label text-success-emphasis fw-bold">Customer Email</label>
                                         <input class="form-control" type="text" id="email" />
+                                    </div>
+                                    <div class="col-3 ">
+                                        <label class="form-label text-success-emphasis fw-bold">Company</label>
+                                        <input class="form-control" type="text" id="company" />
                                     </div>
 
                                 </div>
@@ -80,9 +84,10 @@ include "connection.php";
                                                 <thead>
                                                     <tr>
                                                         <th class="bg-dark-subtle">id</th>
-                                                        <th class="bg-dark-subtle">Mobile</th>
                                                         <th class="bg-dark-subtle">Name</th>
+                                                        <th class="bg-dark-subtle">Mobile</th>
                                                         <th class="bg-dark-subtle">Email</th>
+                                                        <th class="bg-dark-subtle">Company</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="tbc">

@@ -15,7 +15,7 @@ include "connection.php";
     <link rel="icon" href="resources/harvest_11296852.png">
 </head>
 
-<body class="backgroundImg">
+<body class="backgroundImg5">
 
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
@@ -24,7 +24,7 @@ include "connection.php";
             </div>
 
             <div class="col-12 mt-2 mb-3 d-flex justify-content-center">
-                <a class="text-decoration-none text-success-emphasis fs-3 fw-bold">Register Company</a>
+                <a class="text-decoration-none text-light fs-3 fw-bold">Register Company</a>
                 &nbsp;&nbsp;
             </div>
 
@@ -51,7 +51,7 @@ include "connection.php";
             </div>
 
             <div class="col-12 mt-5 mb-3 d-flex justify-content-center">
-                <a class="text-decoration-none text-success-emphasis fs-3 fw-bold">Supplier Register</a>
+                <a class="text-decoration-none text-light fs-3 fw-bold">Supplier Register</a>
                 &nbsp;&nbsp;
             </div>
 

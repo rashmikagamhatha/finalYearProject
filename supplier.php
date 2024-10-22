@@ -26,7 +26,7 @@ if (isset($_SESSION["u"])) {
             <link rel="icon" href="resources/harvest_11296852.png">
         </head>
 
-        <body class="backgroundImg" onload="loadSup();">
+        <body class="backgroundImg5" onload="loadSup();">
 
             <!-- navbar  -->
             <?php include "adminNavbar.php"; ?>
@@ -46,12 +46,12 @@ if (isset($_SESSION["u"])) {
                     </div>
 
                     <div class="row d-flex justify-content-center mt-4 mb-4">
-                        <a class="btn btn-outline-info fw-bold col-2 me-1" href="registerSuplier.php">Add Suppliers</a>
+                        <a class="btn btn-outline-light fw-bold col-2 me-1" href="registerSuplier.php">Add Suppliers</a>
                     </div>
                     
 
                     <div class="col-4 col-md-8 mb-3" id="printAr">
-                        <h2 class="text-center mb-2 fw-bold">Suppliers List</h2>
+                        <h2 class="text-center mb-2 text-light fw-bold">Suppliers List</h2>
                         <br>
                         <div class="row">
                             <table class="table signup_box">
@@ -76,7 +76,7 @@ if (isset($_SESSION["u"])) {
 
                     <div class="container-fluid row">
                         <div class="col-4 col-md-8 mb-3 d-flex justify-content-end container mt-5 mb-5">
-                        <i class="btn btn-outline-danger fw-bold col-1 bi bi-printer" onclick="printDiv();"></i>
+                        <i class="btn btn-light fw-bold col-1 bi bi-printer" onclick="printDiv();"></i>
                             <!-- <button class="btn btn-outline-dark col-2" onclick="printDiv();">Print</button> -->
                         </div>
                     </div>

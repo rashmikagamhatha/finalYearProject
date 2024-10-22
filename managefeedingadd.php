@@ -24,7 +24,7 @@ include "connection.php";
             </div>
 
             <div class="col-12 mt-5 mb-3 d-flex justify-content-center">
-                <a class="text-decoration-none text-success-emphasis fs-3 fw-bold">Add New Feeding Schedule </a>
+                <a class="text-decoration-none text-success-emphasis fs-3 fw-bold">New Feeding Schedule Add</a>
                 &nbsp;&nbsp;
             </div>
 
@@ -39,8 +39,7 @@ include "connection.php";
                             <div class="col-12 mt-2">
                                 <div class="row">
                                     <div class="col-4 ">
-                                        <label class="form-label text-success-emphasis text-center fw-bold">Animal
-                                            Type</label>
+                                        <label class="form-label text-success-emphasis text-center fw-bold">Animal Type</label>
                                         <select class="form-select" id="atype">
                                             <option value="">Select</option>
                                             <?php
@@ -52,8 +51,7 @@ include "connection.php";
                                                 $data = $rs->fetch_assoc();
 
                                             ?>
-                                            <option value="<?php echo ($data["id"]); ?>">
-                                                <?php echo ($data["type_name"]); ?></option>
+                                                <option value="<?php echo ($data["id"]); ?>"><?php echo ($data["type_name"]); ?></option>
                                             <?php
                                             }
 
@@ -61,8 +59,7 @@ include "connection.php";
                                         </select>
                                     </div>
                                     <div class="col-4">
-                                        <label class="form-label text-success-emphasis text-center fw-bold">Food
-                                            Type</label>
+                                        <label class="form-label text-success-emphasis text-center fw-bold">Food Type</label>
                                         <select class="form-select" id="fotype">
                                             <option value="">Select</option>
                                             <?php
@@ -74,8 +71,7 @@ include "connection.php";
                                                 $data = $rs->fetch_assoc();
 
                                             ?>
-                                            <option value="<?php echo ($data["id"]); ?>"><?php echo ($data["type"]); ?>
-                                            </option>
+                                                <option value="<?php echo ($data["id"]); ?>"><?php echo ($data["type"]); ?></option>
                                             <?php
                                             }
 
@@ -106,8 +102,7 @@ include "connection.php";
                                 <div class="col-12">
                                     <div class=" row">
                                         <div class="col-12 d-grid mt-4">
-                                            <button class="btn btn-outline-dark"
-                                                onclick="feedschedreg();">Register</button>
+                                            <button class="btn btn-outline-dark" onclick="feedschedreg();">Register</button>
                                         </div>
                                     </div>
                                 </div>

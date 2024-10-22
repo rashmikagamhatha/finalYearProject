@@ -7,7 +7,7 @@ function changeLanguage() {
   const cantitle = document.getElementById('cantitle');
   const dashtitle = document.getElementById('dashtitle');
   const chartname1 = document.getElementById('chartname1');
-  const chartname2 = document.getElementById('chartname2');
+  const chrt1 = document.getElementById("chrt1");
   const can1 = document.getElementById('can1');
   const can2 = document.getElementById('can2');
   const can3 = document.getElementById('can3');
@@ -22,6 +22,28 @@ function changeLanguage() {
   const card3 = document.getElementById('card3');
   const card4 = document.getElementById('card4');
   const ftrnote = document.getElementById('ftrnote');
+  const tasklist1 = document.getElementById('tasklist1');
+  const tlb1 = document.getElementById('tlb1');
+  const tlb2 = document.getElementById('tlb2');
+  const tlb3 = document.getElementById('tlb3');
+  const r11 = document.getElementById('r11');
+  const r21 = document.getElementById('r21');
+  const r31 = document.getElementById('r31');
+  const r12 = document.getElementById('r12');
+  const r13 = document.getElementById('r13');
+  const r14 = document.getElementById('r14');
+  const r15 = document.getElementById('r15');
+  const r16 = document.getElementById('r16');
+  const r17 = document.getElementById('r17');
+  const r18 = document.getElementById('r18');
+  const tm1 = document.getElementById('tm1');
+  const tm2 = document.getElementById('tm2');
+  const tm3 = document.getElementById('tm3');
+  const tm4 = document.getElementById('tm4');
+  const tm5 = document.getElementById('tm5');
+  const tm6 = document.getElementById('tm6');
+  const tm7 = document.getElementById('tm7');
+
   const selectedLanguage = document.getElementById('languageSelect').value;
 
   if (selectedLanguage === 'si') {
@@ -32,7 +54,6 @@ function changeLanguage() {
       cantitle.innerText = 'කළමණාකරණ අංශය';
       dashtitle.innerText = 'කළමණාකරණය';
       chartname1.innerText = 'වර්ගය අනුව සත්ව ජනගහනය බෙදා හැරීම';
-      chartname2.innerText = 'සත්ව සෞඛ්‍ය තත්වය දළ විශ්ලේෂණය';
       can1.innerText = 'පශු සම්පත් දත්ත';
       can2.innerText = 'ආහාර සංචිත';
       can3.innerText = 'නිශ්පාදනය';
@@ -40,14 +61,34 @@ function changeLanguage() {
       can5.innerText = 'සේවක කළමනාකරණය';
       can6.innerText = 'සෞඛ්ය නිරීක්ෂණ';
       can7.innerText = 'ආහාර කාලසටහන කළමණාකරණය';
-      can8.innerText = 'දැනුම්දීම';
+      can8.innerText = 'දැනුම්දීම්';
       nav1.innerText = 'Leza ගොවිපල';
       card1.innerText = 'මුළු සතුන් ගණන';
       card2.innerText = 'අවධානය දියයුතු';
       card3.innerText = 'ගැබිනි සතුන්';
       card4.innerText = 'සෞඛ්‍ය සම්පන්න';
       ftrnote.innerText = 'LezaFarming යනු සාම්ප්‍රදායික ගොවිපල කළමනාකරණ ක්‍රමවල ඇති හිඩැස් ආමන්ත්‍රණය කරමින් ශ්‍රී ලංකාවේ කුඩා හා මධ්‍ය පරිමාණ ගොවිපල සඳහා සකස් කරන ලද නව්‍ය පශු සම්පත් කළමනාකරණ පද්ධතියකි. එය සෞඛ්‍ය අධීක්ෂණය, එන්නත් සහ ප්‍රතිකාර සඳහා ස්වයංක්‍රීය ඇඟවීම්, අභිජනන වාර්තා, සහ ආහාර කළමනාකරණය වැනි විශේෂාංග ලබා දීමෙන් එදිනෙදා ගොවිපල මෙහෙයුම් සරල කරයි. LezaFarming නිර්මාණය කර ඇත්තේ පරිශීලක ප්‍රවේශ්‍යතාව මනසේ තබාගෙන, සියළුම ගොවීන් සඳහා ඔවුන්ගේ තාක්ෂණික විශේෂඥතාව නොසලකා භාවිතයේ පහසුව සහතික කරමිනි. ප්‍රධාන ක්‍රියාවලීන් ස්වයංක්‍රීය කිරීම මගින්, එය ගොවීන්ට කාර්යක්ෂමතාව ඉහළ නැංවීමට, දෝෂ අවම කිරීමට සහ සමස්ත පශු සම්පත් ඵලදායිතාව වැඩිදියුණු කිරීමට, ශ්‍රී ලංකාවේ නවීන, තිරසාර ගොවිතැන් පිළිවෙත් සඳහා දායක වේ.';
-      
+      tasklist1.innerText = 'දෛනික කාලසටහන';
+      tlb1.innerText = 'සේවකයා';
+      tlb2.innerText = 'කාර්ය'
+      tlb3.innerText = 'වේලාව';
+      r11.innerText = 'ආහාර අධීක්ෂක';
+      r21.innerText = 'සෞඛ්ය සහකාර';
+      r31.innerText = 'සත්ත්ව භාරකරු';
+      r12.innerText = 'ගවයින් සඳහා ආහාර දීම';
+      r13.innerText = 'කුකුලන් සඳහා ආහාර දීම';
+      r14.innerText = 'එළුවන් සඳහා ආහාර දීම';
+      r15.innerText = 'ගවයින්/කුකුළන් නිරීක්ෂණය';
+      r16.innerText = 'එළුවන් නිරීක්ෂණය';
+      r17.innerText = 'එළුවන් හා ගවයින්ගේ කිරි දෙවීම';
+      r18.innerText = 'බිත්තර එකතු කිරීම';
+      tm1.innerText = 'පෙ.ව 6.00/ප.ව 1.00/ප.ව 3.00';
+      tm2.innerText = 'පෙ.ව 6.00/පෙ.ව 11.00/ප.ව 5.00';
+      tm3.innerText = 'පෙ.ව 7.00/ප.ව 1.30/ප.ව 5.30';
+      tm4.innerText = 'පෙ.ව 6.00 /ප.ව 6.00';
+      tm5.innerText = 'ප.ව 12.00 /ප.ව 7.30';
+      tm6.innerText = 'පෙ.ව 7.00 & ප.ව 7.30';
+      tm7.innerText = 'පෙ.ව 8.00';
   } else {
       textElement.innerText = 'Select Language';
       navop.innerText = 'My Options';
@@ -56,7 +97,6 @@ function changeLanguage() {
       cantitle.innerText = 'Dashboard';
       dashtitle.innerText = 'Dashboard';
       chartname1.innerText = 'Distribution of Animal Population by Type';
-      chartname2.innerText = 'Animal Health Status Overview';
       can1.innerText = 'LiveStock details';
       can2.innerText = 'Food Stock';
       can3.innerText = 'Production';
@@ -71,5 +111,28 @@ function changeLanguage() {
       card3.innerText = 'Pregnant';
       card4.innerText = 'Healthy';
       ftrnote.innerText = 'LezaFarming is an innovative Livestock Management System tailored for small to medium-scale farms in Sri Lanka, addressing gaps in traditional farm management methods. It simplifies day-to-day farm operations by offering features like health monitoring, automated alerts for vaccinations and treatments, breeding records, and feeding management. LezaFarming is designed with user accessibility in mind, ensuring ease of use for all farmers, regardless of their technical expertise. By automating key processes, it helps farmers boost efficiency, reduce errors, and improve overall livestock productivity, contributing to modern, sustainable farming practices in Sri Lanka.';
+      tasklist1.innerText = 'TO-DO List';
+      tlb1.innerText = 'Employee';
+      tlb2.innerText = 'Task';
+      tlb3.innerText = 'Time';
+      r11.innerText = 'Feed Supervisor';
+      r21.innerText = 'Health Assistant';
+      r31.innerText = 'Animal Caretaker';
+      r12.innerText = 'Feeding Cattles';
+      r13.innerText = 'Feeding Poultry';
+      r14.innerText = 'Feeding Goats';
+      r15.innerText = 'Cattle/Poultry Health Check';
+      r16,innerText = 'Goats Health Check';
+      r17.innerText = 'Cattle & Goat Milking';
+      r18.innerText = 'Eggs Collecting';
+      tm1.innerText = '6.00AM/ 1.00PM/ 3.00PM';
+      tm2.innerText = '6.00AM/ 11.00AM/ 5.00PM';
+      tm3.innerText = '7.00AM/ 1.30PM/ 5.30PM';
+      tm4.innerText = '6.00AM / 6.00PM';
+      tm5.innerText = '12.00PM / 7.30PM';
+      tm6.innerText = '7.00AM & 7.30AM';
+      tm7.innerText = '8.00AM';
+
+      
   }
 }

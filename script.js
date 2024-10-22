@@ -1164,11 +1164,13 @@ function cusReg() {
     var mobile = document.getElementById("mobile");
     var name = document.getElementById("name");
     var email = document.getElementById("email");
+    var company = document.getElementById("company");
 
     var f = new FormData();
     f.append("m", mobile.value);
     f.append("n", name.value);
     f.append("e", email.value);
+    f.append("c", company.value);
 
     var request = new XMLHttpRequest();
 

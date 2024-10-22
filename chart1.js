@@ -47,7 +47,7 @@ new Chart(ctx, {
 const ctz = document.getElementById('animalchart2');
 
 new Chart(ctz, {
-  type: 'line',
+  type: 'bar',
   data: {
     labels: ['Healthy', 'Underweight', 'Overweight', 'Sick', 'Pregnant '],
     datasets: [{

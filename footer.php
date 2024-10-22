@@ -19,7 +19,7 @@
         <div class="col-12 text-md-start">
             <div class="row text-sm-center text-md-start">
 
-                <div class="col-12 col-md-3 col-lg-3 mx-auto mt-3">
+                <div class="col-12 col-md-8 mx-auto mt-3">
                     <h5 class="text-uppercase text-warning mb-4">Lezafarming</h5>
                     <p id="ftrnote">"LezaFarming is an innovative Livestock Management System tailored for small to medium-scale farms in Sri Lanka, 
                         addressing gaps in traditional farm management methods. It simplifies day-to-day farm operations by offering features like health monitoring, 
@@ -30,7 +30,17 @@
                         <p>Copyright &copy; 2024 Lezafarming All Rights Reserved.</p>
                 </div>
                 
-                <div class="col-12 col-md-2 col-lg-2 mx-auto mt-3">
+                
+
+                <div class="col-12 col-md-4 mx-auto mt-3">
+
+                    <h5 class="text-uppercase text-warning mb-4">Contact Us</h5>
+
+                    <p><i class="bi bi-house-fill"></i> sample, Kandy, Sri Lanka</p>
+                    <p><i class="bi bi-at"></i> lezaofficial@gmail.com</p>
+                    <p><i class="bi bi-telephone-fill"></i> +94 812 999 999</p>
+                    <p><i class="bi bi-printer-fill"></i> +94 812 356 789</p>
+
                     <div class="text-sm-center text-md-start">
 
                         <ul class="list-unstyled list-inline">
@@ -68,16 +78,7 @@
                         </ul>
 
                     </div>
-                </div>
 
-                <div class="col-12 col-md-4 col-lg-3 mx-auto mt-3">
-
-                    <h5 class="text-uppercase text-warning mb-4">Contact Us</h5>
-
-                    <p><i class="bi bi-house-fill"></i> sample, Kandy, Sri Lanka</p>
-                    <p><i class="bi bi-at"></i> lezaofficial@gmail.com</p>
-                    <p><i class="bi bi-telephone-fill"></i> +94 812 999 999</p>
-                    <p><i class="bi bi-printer-fill"></i> +94 812 356 789</p>
 
                 </div>
 

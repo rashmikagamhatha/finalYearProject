@@ -27,7 +27,8 @@ if (empty($ptype)) {
 } else if (empty($exp)) {
     echo("Enter Expire Date");
 } else{
-    $rs = Database::search("SELECT * FROM `product_stock` WHERE `product_type_id` = '".$ptype."' AND `production_id` = '".$pname."' AND `price` = '".$uprice."' AND `mfd` = '".$mfd."'");
+    $rs = Database::search("SELECT * FROM `product_stock` WHERE `product_type_id` = '".$ptype."' AND `production_id` = '".$pname."' 
+    AND `price` = '".$uprice."' AND `mfd` = '".$mfd."'");
     $num = $rs->num_rows;
     $d = $rs->fetch_assoc();
     // echo($num);

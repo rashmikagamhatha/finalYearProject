@@ -28,7 +28,7 @@ if ($num > 0) {
         <br><br><br>
 
         <div class="container mt-3">
-            <button onclick="finish();" class="btn "><a href="dashboard.php"><img src="resources/back.png" height="50" ;></a></button>
+            <button onclick="finish();" class="btn "><a href="saleproduct.php"><img src="resources/back.png" height="50" ></a></button>
             
         </div>
 
@@ -52,7 +52,7 @@ if ($num > 0) {
                 <div>
                     <h4><?php echo $cus["name"] ?></h4>
                     <h5><?php echo $cus["mobile"] ?></h5>
-                    <h5><?php echo $cus["email"] ?></h5>
+                    <h5><?php echo $cus["company_name"] ?></h5>
                 </div>
 
                 <div class="ps-5 pe-5 mt-5 col-sm-4 col-6 col-md-12">

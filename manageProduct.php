@@ -26,7 +26,7 @@ if (isset($_SESSION["u"])) {
             <link rel="icon" href="resources/harvest_11296852.png">
         </head>
 
-        <body class="backgroundImg">
+        <body class="backgroundImg4">
 
 
             <div class="container-fluid">
@@ -36,7 +36,7 @@ if (isset($_SESSION["u"])) {
                     </div>
 
                     <div class="col-12 mt-2 mb-3 d-flex justify-content-center">
-                        <a class="text-decoration-none text-success-emphasis fs-3 fw-bold">Register Product Type</a>
+                        <a class="text-decoration-none text-light fs-3 fw-bold">Register Product Type</a>
                         &nbsp;&nbsp;
                     </div>
 
@@ -86,7 +86,7 @@ if (isset($_SESSION["u"])) {
 
 
                     <div class="col-12 mt-5 mb-3 d-flex justify-content-center">
-                        <a class="text-decoration-none text-success-emphasis fs-3 fw-bold">Product Register</a>
+                        <a class="text-decoration-none text-light fs-3 fw-bold">Product Register</a>
                     </div>
 
                     <!-- productbox  -->
@@ -149,7 +149,7 @@ if (isset($_SESSION["u"])) {
                     </div>
 
                     <div class="col-12 mt-5 mb-3 d-flex justify-content-center">
-                        <a class="text-decoration-none text-success-emphasis fs-3 fw-bold">Production Stock Register</a>
+                        <a class="text-decoration-none text-light fs-3 fw-bold">Production Stock Register</a>
                     </div>
 
                     <!-- signupbox  -->

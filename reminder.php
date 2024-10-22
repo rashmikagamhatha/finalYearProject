@@ -10,13 +10,18 @@
     <link rel="icon" href="resources/harvest_11296852.png">
 </head>
 
-<body class="">
+<body class="container-fluid">
+
+
+    <div class="container mt-3">
+        <a href="dashboard.php"><img src="resources/back.png" height="50" ;></a>
+    </div>
 
     <br><br><br><br><br>
     <div class="col-10">
         <h1 class="text-center rounded-3 col-8 offset-3 fw-bold">Reminders </h1>
         <div class="row offset-3 mt-5">
-            <div class="col-3 mt-5">
+            <div class="col-4 mt-5">
                 <div>
                     <h5 class="text-start">Vaccine Reminders</h5>
                 </div>
@@ -24,11 +29,19 @@
                     <h1 class="spinner-grow col-5 offset-4" role="status">. .</h1>
                 </a>
             </div>
-            <div class="col-3 mt-5">
+            <div class="col-4 mt-5">
                 <div>
                     <h5 class="text-start ">Feeding Reminders</h5>
                 </div>
-                <a href="adminReportProduct.php">
+                <a href="#">
+                    <h1 class="spinner-grow col-5 offset-3" role="status">. .</h1>
+                </a>
+            </div>
+            <div class="col-4 mt-5">
+                <div>
+                    <h5 class="text-start">Milking Reminders</h5>
+                </div>
+                <a href="#">
                     <h1 class="spinner-grow col-5 offset-3" role="status">. .</h1>
                 </a>
             </div>

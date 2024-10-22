@@ -26,7 +26,7 @@ if (isset($_SESSION["u"])) {
             <link rel="icon" href="resources/harvest_11296852.png">
         </head>
 
-        <body class="backgroundImg" onload="loadAnimal();">
+        <body class="backgroundImg6" onload="loadAnimal();">
 
             <!-- navbar  -->
             <?php include "adminNavbar.php"; ?>
@@ -42,7 +42,7 @@ if (isset($_SESSION["u"])) {
 
                     <!-- category name -->
                     <div class="col-12 mt-2 mb-3">
-                        <a class="text-decoration-none link-dark fs-3 fw-bold">Animal Health Monitoring</a>
+                        <a class="text-decoration-none link-light fs-3 fw-bold">Animal Health Monitoring</a>
 
                     </div>
                     <!-- category name end-->
@@ -53,14 +53,10 @@ if (isset($_SESSION["u"])) {
                         </div>
                     </div>
 
-                    <div class="col-4 col-md-8 mb-3" id="printAr">
-                        <h2 class="text-center mb-2 fw-bold">Cattle</h2>
-                        <br>
-
-                        <div class="row d-flex justify-content-end mt-4 mb-4">
+                    <div class="row d-flex justify-content-end mt-4 mb-4">
                             
-                            <label class="col-3 text-end form-label text-success-emphasis fw-bold">Animal Type</label>
-                                <div class="col-4">
+                            <label class="col-3 text-end form-label text-light fw-bold">Animal Type</label>
+                                <div class="col-2">
                                     <select class="form-select" id="selectType">
                                         <option value="">Select</option>
                                         <?php
@@ -81,8 +77,14 @@ if (isset($_SESSION["u"])) {
                                 </div>
 
                             
-                            <i class="col-1 me-2 btn btn-outline-danger bi bi-pencil-square fw-bold" onclick="animalHealthProfile();"></i>
+                            <i class="col-1 me-2 btn btn-secondary bi bi-pencil-square fw-bold" onclick="animalHealthProfile();"></i>
                         </div>
+
+                    <div class="col-4 col-md-8 mb-3" id="printAr">
+                        <h2 class="text-center text-light mb-2 fw-bold">Cattle</h2>
+                        <br>
+
+                        
 
                         <div class="row">
                             <table class="table signup_box">
@@ -118,7 +120,7 @@ if (isset($_SESSION["u"])) {
                     </div>
 
                     <div class="col-4 col-md-8 mb-3" id="printAr2">
-                        <h2 class="text-center mb-2 fw-bold">Goat</h2>
+                        <h2 class="text-center text-light mb-2 fw-bold">Goat</h2>
                         <br>
                         <div class="row">
                             <table class="table signup_box">
@@ -153,7 +155,7 @@ if (isset($_SESSION["u"])) {
 
 
                     <div class="col-4 col-md-8 mb-3" id="printAr3">
-                        <h2 class="text-center mb-2 fw-bold">Poultry</h2>
+                        <h2 class="text-center text-light mb-2 fw-bold">Poultry</h2>
                         <br>
                         <div class="row">
                             <table class="table signup_box">
