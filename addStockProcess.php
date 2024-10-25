@@ -15,7 +15,7 @@ if (empty($ptype)) {
 } else if (empty($pname)) {
     echo("Please Select Product Name");
 } else if (empty($volume)) {
-    echo("Please Enter Volume or Qty of production");
+    echo("Please Enter Volume or Qty of Production");
 } else if (empty($metric)) {
     echo("Select Metric");
 } else if (empty($uprice)) {
