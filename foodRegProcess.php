@@ -19,9 +19,9 @@ if (empty($foodname)) {
 } else if (strlen($foodqty) > 10) {
     echo("Qty should be Less than 10 Characters");
 }  else if (empty($fooddate)) {
-    echo("Please Select a Food Date");
+    echo("Please Select Food Register Date");
 }else if (empty($foodcost)) {
-    echo("please enter a Price");
+    echo("Please enter a Price");
 }else if (!is_numeric($foodcost)) {
     echo("Only Numbers can be entered Price");
 } else if (empty($smobile)) {

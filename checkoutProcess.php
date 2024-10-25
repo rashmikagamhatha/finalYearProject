@@ -17,6 +17,5 @@ $customer = $_POST["sc"];
         $_SESSION["sc"] = $d;
         echo("Success");
     }else {
-        echo("select Customer");
+        echo("Select Customer");
     }
-

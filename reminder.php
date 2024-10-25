@@ -33,15 +33,15 @@
                 <div>
                     <h5 class="text-start ">Feeding Reminders</h5>
                 </div>
-                <a href="#">
+                <a href="feedingreminder.php">
                     <h1 class="spinner-grow col-5 offset-3" role="status">. .</h1>
                 </a>
             </div>
             <div class="col-4 mt-5">
                 <div>
-                    <h5 class="text-start">Milking Reminders</h5>
+                    <h5 class="text-start">Production Reminders</h5>
                 </div>
-                <a href="#">
+                <a href="productionreminder.php">
                     <h1 class="spinner-grow col-5 offset-3" role="status">. .</h1>
                 </a>
             </div>

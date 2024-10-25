@@ -13,7 +13,7 @@ if (empty($weight)) {
 }else if (!is_numeric($weight)) {
     echo("Only numbers can be entered Weight");
 }else if (empty($age)) {
-    echo("Please Enter a Age");
+    echo("Please Enter the Age");
 }else if (!is_numeric($age)) {
     echo("Only numbers can be entered Age");
 }else if (empty($health)) {

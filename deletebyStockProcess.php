@@ -6,7 +6,7 @@ $byid = $_POST["byid"];
 // echo($uid);
 
 if (empty($byid)) {
-    echo ("Please Enter a By_product Id");
+    echo ("Please Enter the By_product Id");
 } else {
     $rs = Database::search("SELECT * FROM `by_products` WHERE `by_id` = '" . $byid . "'");
     $num = $rs->num_rows;

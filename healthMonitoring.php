@@ -9,7 +9,7 @@ if (isset($_SESSION["u"])) {
     $rs = Database::search("SELECT * FROM `employee`  WHERE `emp_id` = '" . $user["emp_id"] . "'");
     $d = $rs->fetch_assoc();
 
-    if ($d["position_id"] == '1' || $d["position_id"] == '2') {
+    if ($d["position_id"] == '1' || $d["position_id"] == '2' || $d["position_id"] == '4') {
 
 ?>
 

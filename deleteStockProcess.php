@@ -6,7 +6,7 @@ $sid = $_POST["sid"];
 // echo($uid);
 
 if (empty($sid)) {
-    echo ("Please Enter a Stock Id");
+    echo ("Please Enter the Stock Id");
 } else {
     $rs = Database::search("SELECT * FROM `product_stock` WHERE `st_id` = '" . $sid . "'");
     $num = $rs->num_rows;

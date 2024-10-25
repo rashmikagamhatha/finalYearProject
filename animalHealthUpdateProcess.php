@@ -14,9 +14,9 @@ if (empty($mdetails)) {
 } else if (empty($vdetails)) {
     echo ("Please enter Vaccination Details. if no any Vaccination details Enter 'No'");
 } else if (empty($wmonitor)) {
-    echo ("Pleas Enter Weight Monitoring Notes. if no any Weight Monitoring Notes Enter 'No'");
+    echo ("Please Enter Weight Monitoring Notes. if no any Weight Monitoring Notes Enter 'No'");
 } else if (empty($tdetails)) {
-    echo ("Pleas Enter Treatment Notes. if no any Treatment Notes Enter 'No'");
+    echo ("Please Enter Treatment Notes. if no any Treatment Notes Enter 'No'");
 } else {
     // Update query
 

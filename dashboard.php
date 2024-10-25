@@ -301,7 +301,7 @@ if (isset($_SESSION["u"])) {
                     <li class="my-1">
                         <hr class="table-group-divider">
                     </li>
-                    <a href="#" class="nav-link px-3 active">
+                    <a href="reminder.php" class="nav-link px-3 active">
                         <span class="me-2">
                             <i class="bi bi-bell"></i>
                         </span>
@@ -459,50 +459,15 @@ if (isset($_SESSION["u"])) {
                     <div class="row  ">
                         <div class="card bg-primary-subtle" style="width: 25rem;">
                             <div class="card-body">
+                                <h5 class="card-title">Breeds of Cattle</h5>
 
-                                <?php
-                  $rs4 = Database::search("SELECT * FROM `animal` INNER JOIN `animal_type` ON `animal`.`animal_type_id`= `animal_type`.`id` WHERE `type_name` = 'Cattle'");
-                  $num4 = $rs4->num_rows;
-
-                  $data1 = array();
-                  $json["data"] = $data1;
-
-                  $rs5 = Database::search("SELECT * FROM `animal` INNER JOIN `animal_type` ON `animal`.`animal_type_id`= `animal_type`.`id` WHERE `type_name` = 'Goat'");
-                  $num5 = $rs5->num_rows;
-
-                  $rs6 = Database::search("SELECT * FROM `animal` INNER JOIN `animal_type` ON `animal`.`animal_type_id`= `animal_type`.`id` WHERE `type_name` = 'Poultry'");
-                  $num6 = $rs6->num_rows;
-                  ?>
-
-                                <h5 class="card-title">Number of Animals</h5>
-
-                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Cattles: <?php
-                                                                                    if ($num4 > 0) {
-                                                                                      echo ($num4);
-                                                                                    } else {
-                                                                                    ?>
-                                    0
-                                    <?php
-                                                                                    }
-                    ?></h6>
-                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Goats: <?php
-                                                                                  if ($num5 > 0) {
-                                                                                    echo ($num5);
-                                                                                  } else {
-                                                                                  ?>
-                                    0
-                                    <?php
-                                                                                  }
-                    ?></h6>
-                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Poultry: <?php
-                                                                                    if ($num6 > 0) {
-                                                                                      echo ($num6);
-                                                                                    } else {
-                                                                                    ?>
-                                    0
-                                    <?php
-                                                                                    }
-                    ?></h6>
+                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1"> - Jersey
+                                </h6>
+                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1"> - Holstein Friesian
+                                </h6>
+                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1"> - Sahiwal
+                                </h6>
+                                <!-- <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Poultry:</h6> -->
 
                             </div>
                         </div>
@@ -513,13 +478,11 @@ if (isset($_SESSION["u"])) {
                     <div class="row  ">
                         <div class="card bg-info-subtle" style="width: 25rem;">
                             <div class="card-body">
-                                <h5 class="card-title">Daily/Weekly reports</h5>
+                                <h5 class="card-title">Breeds of Poultry</h5>
 
-                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Milk Production: 500 liters/day
+                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1"> - Brown Leghorn
                                 </h6>
-                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Average weight gain: 0.5Kg/day
-                                </h6>
-                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Average weight gain: 1Kg/day
+                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1"> - Bovans White
                                 </h6>
                                 <!-- <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Poultry:</h6> -->
 
@@ -532,13 +495,15 @@ if (isset($_SESSION["u"])) {
                     <div class="row">
                         <div class="card bg-primary-subtle" style="width: 25rem;">
                             <div class="card-body">
-                                <h5 class="card-title">Feeding logs</h5>
+                                <h5 class="card-title">Breeds of Goat</h5>
 
-                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1">July 29: Goat fed with Grains
-                                    mix</h6>
-                                <span>-> july 29: Goats fed</span>
-                                <span>-> July 28: Cows fed</span>
-
+                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1"> - Anglo Nubian
+                                </h6>
+                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1"> - Jamunapari
+                                </h6>
+                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1"> - Saanen
+                                </h6>
+                                <!-- <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Poultry:</h6> -->
 
                             </div>
                         </div>
@@ -548,12 +513,17 @@ if (isset($_SESSION["u"])) {
                     <div class="row">
                         <div class="card bg-info-subtle" style="width: 25rem;">
                             <div class="card-body">
-                                <h5 class="card-title">Helath Overview</h5>
+                                <h5 class="card-title">Daily/Weekly reports</h5>
 
-                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Upcomming Tasks</h6>
-                                <span>-> Vaccination Cows (Due:July 31)</span>
-                                <span>-> Inspect barn Cows</span>
-
+                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1"> - Milk Production: 500
+                                    liters/day
+                                </h6>
+                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1"> - Average weight gain:
+                                    0.5Kg/day
+                                </h6>
+                                <h6 class="card-subtitle mb-1 text-body-secondary mt-1"> - Average weight gain: 1Kg/day
+                                </h6>
+                                <!-- <h6 class="card-subtitle mb-1 text-body-secondary mt-1">Poultry:</h6> -->
 
                             </div>
                         </div>

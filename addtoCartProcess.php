@@ -13,7 +13,7 @@ $rs = Database::search("SELECT * FROM `product_stock` WHERE `st_id` = '" . $stoc
 $num = $rs->num_rows;
 
 if (empty($customer)) {
-    echo("please select a Customer");
+    echo("Please select a Customer");
 }else if ($num > 0) {
     // echo("Success");
     $d = $rs->fetch_assoc();

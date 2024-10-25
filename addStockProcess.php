@@ -19,9 +19,9 @@ if (empty($ptype)) {
 } else if (empty($metric)) {
     echo("Select Metric");
 } else if (empty($uprice)) {
-    echo("Please enter a unit price");
+    echo("Please enter an unit price");
 } else if (!is_numeric($uprice)) {
-    echo("Only Numbers can be entered Price");
+    echo("Only Numbers can be entered in Price");
 } else if (empty($mfd)) {
     echo("Enter Manufacture Date");
 } else if (empty($exp)) {

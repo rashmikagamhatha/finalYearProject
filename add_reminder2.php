@@ -15,7 +15,7 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $pdo->prepare("INSERT INTO feeding_reminder (message, reminder_date, reminder_time) VALUES (?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO production_reminder (message, reminder_date, reminder_time) VALUES (?, ?, ?)");
     $stmt->execute([$message, $date, $time]);
 
     echo json_encode(['success' => true]);

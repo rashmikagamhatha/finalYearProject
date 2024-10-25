@@ -6,8 +6,8 @@ $ptr = $_POST["p"];
 
 if (empty($ptr)) {
     echo("Please Enter a Product Type");
-} else if (strlen($ptr)>20) {
-    echo("Product Type should be less than 20 characters");
+} else if (strlen($ptr)>30) {
+    echo("Product Type should be less than 30 characters");
 } else{
     $rs = Database::search("SELECT * FROM `product_type` WHERE `type` = '".$ptr."'");
     $num = $rs->num_rows;

@@ -10,10 +10,10 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $pdo->query("SELECT * FROM feeding_reminder");
+    $stmt = $pdo->query("SELECT * FROM production_reminder");
     $reminders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    echo json_encode(['feeding_reminder' => $reminders]);
+    echo json_encode(['production_reminder' => $reminders]);
 } catch (PDOException $e) {
     echo json_encode(['error' => $e->getMessage()]);
 }

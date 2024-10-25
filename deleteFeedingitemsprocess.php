@@ -6,7 +6,7 @@ $fid = $_POST["fid"];
 // echo($uid);
 
 if (empty($fid)) {
-    echo ("Please Enter a Feed Schedule Id");
+    echo ("Please Enter the Feed Schedule Id");
 } else {
     $rs = Database::search("SELECT * FROM `feeding_manage` WHERE `f_id` = '" . $fid . "'");
     $num = $rs->num_rows;

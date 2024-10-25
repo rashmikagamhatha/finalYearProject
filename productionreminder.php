@@ -7,7 +7,7 @@ if (isset($_SESSION["u"])) {
     $rs = Database::search("SELECT * FROM `employee`  WHERE `emp_id` = '" . $user["emp_id"] . "'");
     $d = $rs->fetch_assoc();
 
-    if ($d["position_id"] == '1' || $d["position_id"] == '3') {
+    if ($d["position_id"] == '1' || $d["position_id"] == '5') {
 ?>
 
         <!DOCTYPE html>
@@ -16,7 +16,7 @@ if (isset($_SESSION["u"])) {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Feeding Reminder</title>
+            <title>Production Reminder</title>
             <script src="script.js" defer></script>
             <link rel="stylesheet" href="bootstrap.min.css">
             <link rel="stylesheet" href="style.css">
@@ -33,7 +33,7 @@ if (isset($_SESSION["u"])) {
                     </div>
 
                     <div class="col-12 mt-5 mb-3 d-flex justify-content-center">
-                        <a class="text-decoration-none text-success-emphasis fs-3 fw-bold">Add Feeding Reminder</a>
+                        <a class="text-decoration-none text-success-emphasis fs-3 fw-bold">Production Reminder</a>
                         &nbsp;&nbsp;
                     </div>
 
@@ -46,7 +46,7 @@ if (isset($_SESSION["u"])) {
                                     <!-- topic -->
 
                                     <div class="col-12 mt-2">
-                                        <form id="reminderForm1">
+                                        <form id="reminderForm2">
                                             <input class="col-3" type="text" id="message" placeholder="Message" required>
                                             <input class="col-3" type="date" id="reminderDate" required>
                                             <input class="col-3" type="time" id="reminderTime" required>
@@ -62,7 +62,7 @@ if (isset($_SESSION["u"])) {
 
                     <h2>Your Reminders</h2>
 
-                    <div class="text-bg-danger text-dark fw-bold" id="remindersList1"></div>
+                    <div class="text-bg-danger text-dark fw-bold" id="remindersList23"></div>
                 </div>
 
 
@@ -75,7 +75,7 @@ if (isset($_SESSION["u"])) {
 
 
 
-            <script src="feeding.js"></script>
+            <script src="production.js"></script>
             <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
             <script src="bootstrap.bundle.min.js"></script>
         </body>
